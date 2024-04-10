@@ -59,3 +59,6 @@ icons attributed to:
    - hand-made by Freepik
    - crochet by Becris
    - knitting by Freepik
+   - sewing-machine by Freepik
+   - lace-making by Freepik
+   - wool by Freepik
