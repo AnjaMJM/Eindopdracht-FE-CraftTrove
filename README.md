@@ -1,8 +1,41 @@
-# React + Vite
+# Eindopdracht Frontend: CraftTrove - webshop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Packages - geïnstalleerd: axios, react router DOM, 
 
-Currently, two official plugins are available:
+Beoordelingscriteria website:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[ ] Minimaal 4 kern functionaliteiten;
+
+    [] Inloggen/registreren
+    [] Zoekfunctie
+    [] Toevoegen producten
+    [] Winkelmand vullen
+    [] Reviews plaatsen
+
+[ ] Minimaal 6 herbruikbare componenten
+    
+    [] Button
+    [] inlog/registratie Form
+    [] Gallery Slider
+    [] Navbar
+    [] Header
+    [] Footer
+    [] Textfield (product, about designer)
+    [] Product Gallery
+    [] Modal (inloggen/ registreren)
+    [] Searchbar
+
+
+GIT:
+
+[ ] Minimaal 5 branches en merches met main branch
+
+    [] Gallery Slider
+    [] searchbar
+    [] Pages (aanmaken en basic lay-out)
+    [] Winkelmandje
+    [] Registratie, authethicatie
+    [] Create product en shop
+    [] Error handling
+
+[ ] Minimaal 20 commits met zinvolle messages
