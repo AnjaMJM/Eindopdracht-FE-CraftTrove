@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import "./Searchbar.css";
 import { useDebounce } from "../../hooks/useDebounce";
 import { SearchContext } from "../../context/SearchContext/SearchContext";
@@ -7,7 +7,7 @@ const Searchbar = ({ setResult, suggestionKey }) => {
     const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
     const [localSuggestions, setLocalSuggestions] = useState([]);
-    const { suggestions, fetchData } = useContext(SearchContext);
+    const { suggestions, fetchData, handleSelectedResult } = useContext(SearchContext);
 
     useEffect(() => {
         console.log(suggestions)
@@ -44,6 +44,10 @@ const Searchbar = ({ setResult, suggestionKey }) => {
 
     const handleSearchInputChange = (e) => {
         setValue(e.target.value);
+    };
+
+    const handleSearchSuggestionClick = (selectedResult) => {
+        handleSelectResult(selectedResult);
     };
 
     return (

@@ -1,11 +1,15 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const SearchContext = createContext(null);
 
 function SearchContextProvider({ children }) {
     const [result, setResult] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+    const [selectedResult, setSelectedResult] = useState(null);
+
+    const navigate = useNavigate();
 
     const fetchData = async (value) => {
         try {
@@ -23,11 +27,17 @@ function SearchContextProvider({ children }) {
         void fetchData("");
     }, []);
 
+    const handleSelectedResult = (selectedResult) => {
+        setSelectedResult(selectedResult);
+        navigate("/overview")
+    }
+
     const searchData = {
         products: result,
         suggestions: suggestions, // Include suggestions in the context value
         setResult,
         fetchData,
+        handleSelectedResult,
     };
 
     return (

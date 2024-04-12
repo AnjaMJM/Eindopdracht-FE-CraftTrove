@@ -21,7 +21,7 @@ function App() {
                 <main className="main-container">
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/overview/:results" element={<Overview/>}/>
+                        <Route path="/overview" element={<Overview/>}/>
                         <Route path="/product/:id" element={<Product/>}/>
                         <Route path="/newProduct" element={<NewProduct/>}/>
                         <Route path="/shop/:id" element={<Shop/>}/>
