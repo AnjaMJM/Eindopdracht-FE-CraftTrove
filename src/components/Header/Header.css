@@ -1,0 +1,21 @@
+.header {
+    height: 100px;
+    background-color: var(--main-bg-color-beige);
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.header__nav-list {
+    list-style: none;
+
+    display: flex;
+    gap: 20px;
+}
+
+.header__icon {
+    width:40px;
+}

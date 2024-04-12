@@ -1,8 +1,18 @@
 # Eindopdracht Frontend: CraftTrove - webshop
 
-Packages - geïnstalleerd: axios, react router DOM, 
+### Packages - geïnstalleerd: 
+axios, react router DOM, 
 
-Beoordelingscriteria website:
+### API's: 
+
+fake store https://fakestoreapi.com/
+json servers: http://www.jsonblob.com/1227535449450209280 ???
+https://my-json-server.typicode.com/
+https://getpantry.cloud/
+https://json.psty.io/
+
+
+## Beoordelingscriteria website:
 
 [ ] Minimaal 4 kern functionaliteiten;
 
@@ -37,5 +47,25 @@ GIT:
     [] Registratie, authethicatie
     [] Create product en shop
     [] Error handling
+    [] Authenticatie
 
 [ ] Minimaal 20 commits met zinvolle messages
+
+
+icons via flaticon.com, attributed to:
+   - treasure chest by Smashicons
+   - settings by Freepik
+   - wicker-basket by Freepik
+   - craft-logo by Gravisio
+   - hand-made by Freepik
+   - crochet by Becris
+   - knitting by Freepik
+   - sewing-machine by Freepik
+   - lace-making by Freepik
+   - wool by Freepik
+   - embroidery by Eucalyp
+   - macrame by Freepik
+   - weaving by Freepik
+   - mending by Freepik
+   - patch by Freepik
+   - bed by Darius Dan
