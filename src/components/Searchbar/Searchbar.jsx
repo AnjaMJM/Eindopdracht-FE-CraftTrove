@@ -1,25 +1,29 @@
-import { useState } from 'react';
-import './searchbar.css';
-import {useDebounce} from "../../hooks/useDebounce.js";
+import React, { useContext, useState, useEffect } from 'react';
+import "./Searchbar.css";
+import { useDebounce } from "../../hooks/useDebounce";
+import { SearchContext } from "../../context/SearchContext/SearchContext";
 
-// eslint-disable-next-line react/prop-types
-const Searchbar = ({ fetchData, setResult, suggestionKey }) => {
-    const [value, setValue] = useState(''); //this is the value of the search bar
-    const [suggestions, setSuggestions] = useState([]); // this is where the search suggestions get stored
+const Searchbar = ({ setResult, suggestionKey }) => {
+    const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
-    console.log(hideSuggestions)
+    const [localSuggestions, setLocalSuggestions] = useState([]);
+    const { suggestions, fetchData } = useContext(SearchContext);
+
+    useEffect(() => {
+        console.log(suggestions)
+        setLocalSuggestions(suggestions.products);
+    }, [suggestions]);
+
     const findResult = (value) => {
         setResult(
-            suggestions.find((suggestion) => suggestion[suggestionKey] === value)
+            localSuggestions.find((suggestion) => suggestion[suggestionKey] === value)
         );
     };
 
     useDebounce(
         async () => {
             try {
-                const suggestions = await fetchData(value);
-
-                setSuggestions(suggestions || []);
+                await fetchData(value);
             } catch (error) {
                 console.log(error);
             }
@@ -29,7 +33,7 @@ const Searchbar = ({ fetchData, setResult, suggestionKey }) => {
     );
 
     const handleFocus = () => {
-        setHideSuggestions(false)
+        setHideSuggestions(false);
     };
 
     const handleBlur = () => {
@@ -43,26 +47,24 @@ const Searchbar = ({ fetchData, setResult, suggestionKey }) => {
     };
 
     return (
-        <>
-            <div className='container'>
-                <input
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                    type="search"
-                    className='textbox'
-                    placeholder="Search data..."
-                    value={value}
-                    onChange={handleSearchInputChange}
-                />
-                <div className={`suggestions ${hideSuggestions ? 'hidden' : ''} `}>
-                    {suggestions.map((suggestion, index) => (
-                        <div key={index} className="suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
-                            {suggestion[suggestionKey]}
-                        </div>
-                    ))}
-                </div>
+        <div className='container'>
+            <input
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                type="search"
+                className='textbox'
+                placeholder="Search data..."
+                value={value}
+                onChange={handleSearchInputChange}
+            />
+            <div className={`suggestions ${hideSuggestions ? 'hidden' : ''} `}>
+                {localSuggestions && localSuggestions.map((suggestion, index) => (
+                    <div key={index} className="suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
+                        {suggestion[suggestionKey]}
+                    </div>
+                ))}
             </div>
-        </>
+        </div>
     );
 };
 

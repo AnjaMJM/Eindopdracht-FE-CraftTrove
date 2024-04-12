@@ -69,3 +69,5 @@ icons via flaticon.com, attributed to:
    - mending by Freepik
    - patch by Freepik
    - bed by Darius Dan
+
+Searchbar is created with help of this tutorial: https://upmostly.com/tutorials/how-to-create-a-search-bar-in-react
