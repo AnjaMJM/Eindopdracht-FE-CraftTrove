@@ -41,13 +41,13 @@ GIT:
 [ ] Minimaal 5 branches en merches met main branch
 
     [] Gallery Slider
-    [] searchbar
-    [] Pages (aanmaken en basic lay-out)
+    [] searchbar (get data)
+    [X] Pages (aanmaken en basic lay-out)
     [] Winkelmandje
     [] Registratie, authethicatie
     [] Create product en shop
     [] Error handling
-    [] Authenticatie
+    [] Authentication
 
 [ ] Minimaal 20 commits met zinvolle messages
 
