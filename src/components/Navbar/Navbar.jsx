@@ -1,0 +1,33 @@
+import "./Navbar.css"
+
+import sewing from "../../assets/navbar/sewing-machine.png"
+import knitting from "../../assets/navbar/knitting.png"
+import crochet from "../../assets/navbar/crochet.png"
+import embroidery from "../../assets/navbar/embroidery.png"
+import lace from "../../assets/navbar/lace-making.png"
+import quilt from "../../assets/navbar/bed.png"
+import macrame from "../../assets/navbar/macrame.png"
+import mending from "../../assets/navbar/mending.png"
+import felt from "../../assets/navbar/wool.png"
+import weaving from "../../assets/navbar/weaving.png"
+
+import {Link} from "react-router-dom";
+
+function Navbar() {
+    return (
+        <div className="nav-bar__container">
+            <Link to="/overview?type=sewing"><img src={sewing} alt="sewing" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=knitting"><img src={knitting} alt="knitting" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=crochet"><img src={crochet} alt="crochet" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=embroidery"><img src={embroidery} alt="embroidery" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=lace"><img src={lace} alt="lace" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=quilt"><img src={quilt} alt="quilt" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=macrame"><img src={macrame} alt="macramé" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=mending"><img src={mending} alt="mending" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=felt"><img src={felt} alt="felt" className="nav-bar__link-img"/></Link>
+            <Link to="/overview?type=weaving"><img src={weaving} alt="weaving" className="nav-bar__link-img"/></Link>
+        </div>
+    );
+}
+
+export default Navbar;

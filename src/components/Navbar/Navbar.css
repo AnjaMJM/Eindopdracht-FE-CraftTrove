@@ -1,0 +1,16 @@
+.nav-bar__container {
+    height: 120px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.nav-bar__link-img {
+    width:80px;
+    border: 3px solid var(--accent-color-yellow);
+    border-radius: 999px;
+}

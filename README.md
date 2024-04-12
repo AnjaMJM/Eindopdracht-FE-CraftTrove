@@ -47,11 +47,12 @@ GIT:
     [] Registratie, authethicatie
     [] Create product en shop
     [] Error handling
+    [] Authenticatie
 
 [ ] Minimaal 20 commits met zinvolle messages
 
 
-icons attributed to:
+icons via flaticon.com, attributed to:
    - treasure chest by Smashicons
    - settings by Freepik
    - wicker-basket by Freepik
@@ -62,3 +63,9 @@ icons attributed to:
    - sewing-machine by Freepik
    - lace-making by Freepik
    - wool by Freepik
+   - embroidery by Eucalyp
+   - macrame by Freepik
+   - weaving by Freepik
+   - mending by Freepik
+   - patch by Freepik
+   - bed by Darius Dan
