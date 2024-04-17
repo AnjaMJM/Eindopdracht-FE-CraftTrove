@@ -1,13 +1,15 @@
-import { useContext, useState, useEffect } from 'react';
+import {useContext, useState, useEffect} from 'react';
 import "./Searchbar.css";
-import { useDebounce } from "../../hooks/useDebounce";
-import { SearchContext } from "../../context/SearchContext/SearchContext";
+import {useDebounce} from "../../hooks/useDebounce";
+import {SearchContext} from "../../context/SearchContext/SearchContext";
+import {useNavigate} from "react-router-dom";
 
-const Searchbar = ({ setResult, suggestionKey }) => {
+const Searchbar = ({setResult, suggestionKey}) => {
     const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
     const [localSuggestions, setLocalSuggestions] = useState([]);
-    const { suggestions, fetchData, handleSelectedResult } = useContext(SearchContext);
+    const {suggestions, fetchData, handleSelectedResult} = useContext(SearchContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         console.log(suggestions)
@@ -16,7 +18,8 @@ const Searchbar = ({ setResult, suggestionKey }) => {
 
     const findResult = (value) => {
         setResult(
-            localSuggestions.find((suggestion) => suggestion[suggestionKey] === value)
+            localSuggestions.find((suggestion) => suggestion[suggestionKey] === value),
+            navigate("/product")
         );
     };
 
@@ -46,9 +49,9 @@ const Searchbar = ({ setResult, suggestionKey }) => {
         setValue(e.target.value);
     };
 
-    const handleSearchSuggestionClick = (selectedResult) => {
-        handleSelectResult(selectedResult);
-    };
+    // const handleSearchSuggestionClick = (selectedResult) => {
+    //     handleSelectedResult(selectedResult);
+    // };
 
     return (
         <div className='container'>

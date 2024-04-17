@@ -14,7 +14,6 @@ import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
 
-
     return (
         <>
             <Header/>
@@ -22,7 +21,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/overview" element={<Overview/>}/>
-                        <Route path="/product/:id" element={<Product/>}/>
+                        <Route path="/product" element={<Product/>}/>
                         <Route path="/newProduct" element={<NewProduct/>}/>
                         <Route path="/shop/:id" element={<Shop/>}/>
                         <Route path="/newshop/:id" element={<NewShop/>}/>

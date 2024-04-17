@@ -4,23 +4,14 @@ import {Link} from "react-router-dom";
 import settings from "../../assets/settings.png"
 import shoppingBasket from "../../assets/wicker-basket.png"
 import Searchbar from "../Searchbar/Searchbar.jsx";
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useContext } from "react";
+import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
+
 
 function Header() {
-    const [result, setResult] = useState(null);
+    const {products, setResult, fetchData} = useContext(SearchContext)
 
-    const fetchData = async (value) => {
-        const { data } = await axios.get(
-            `https://dummyjson.com/products/search?q=${value}&limit=10`
-
-        );
-        // console.log(data)
-        return data.products;
-    };
-    useEffect(() => {fetchData("")},[])
-
-
+    console.log("header log", products)
 
     return (
         <div className="header">

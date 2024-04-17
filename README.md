@@ -6,11 +6,9 @@ axios, react router DOM,
 ### API's: 
 
 fake store https://fakestoreapi.com/
-json servers: http://www.jsonblob.com/1227535449450209280 ???
-https://my-json-server.typicode.com/
-https://getpantry.cloud/
-https://json.psty.io/
+json servers:https://getpantry.cloud/
 
+Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
 
 ## Beoordelingscriteria website:
 

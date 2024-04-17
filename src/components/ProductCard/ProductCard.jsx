@@ -2,7 +2,7 @@ import {useContext} from "react";
 import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 
 
-function ProductCard(props) {
+function ProductCard() {
     const { products } = useContext(SearchContext);
 
     // Ensure products is an array and not undefined/null

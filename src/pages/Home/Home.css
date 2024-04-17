@@ -3,3 +3,7 @@
     flex-direction: column;
     justify-content: flex-start;
 }
+
+.img-test {
+    width: 250px;
+}
