@@ -2,6 +2,7 @@ import ProductCard from "../../components/ProductCard/ProductCard.jsx"
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import "./Overview.css"
 
 // After clicking a crafttype in the Navbar, all results will be shown here using ProductCard-components
 
@@ -52,14 +53,15 @@ function Overview() {
     return (
         <>
             <h2 className="overview__title">These are the results for {type}</h2>
-            {products && products.map(({thumbnail, title, brand, description, price}, index) => {
+            <div className="overview__content">
+                {products && products.map(({thumbnail, title, brand, description, price}, index) => {
                 return <ProductCard key={index}
                              thumbnail={thumbnail}
                              title={title}
                              brand={brand}
                              description={description}
                              price={price} />
-            })}
+            })}</div>
         </>
     );
 }

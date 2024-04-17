@@ -5,8 +5,8 @@ axios, react router DOM,
 
 ### API's: 
 
-fake store https://fakestoreapi.com/
-json servers:https://getpantry.cloud/
+fake store https://dummyjson.com/
+
 
 Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
 
