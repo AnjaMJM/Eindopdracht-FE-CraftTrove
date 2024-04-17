@@ -20,7 +20,7 @@ function App() {
                 <main className="main-container">
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/overview" element={<Overview/>}/>
+                        <Route path="/categories/:type" element={<Overview/>}/>
                         <Route path="/product" element={<Product/>}/>
                         <Route path="/newProduct" element={<NewProduct/>}/>
                         <Route path="/shop/:id" element={<Shop/>}/>

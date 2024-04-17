@@ -15,7 +15,7 @@ Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elk
 [ ] Minimaal 4 kern functionaliteiten;
 
     [] Inloggen/registreren
-    [] Zoekfunctie
+    [X] Zoekfunctie
     [] Toevoegen producten
     [] Winkelmand vullen
     [] Reviews plaatsen
@@ -26,26 +26,28 @@ Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elk
     [] inlog/registratie Form
     [] Gallery Slider
     [] Navbar
-    [] Header
+    [x] Header
     [] Footer
     [] Textfield (product, about designer)
     [] Product Gallery
     [] Modal (inloggen/ registreren)
-    [] Searchbar
+    [x] Searchbar
 
 
 GIT:
 
 [ ] Minimaal 5 branches en merches met main branch
 
-    [] Gallery Slider
-    [] searchbar (get data)
+    [] Productpagina
+    [X] searchbar (get data)
     [X] Pages (aanmaken en basic lay-out)
-    [] Winkelmandje
     [] Registratie, authethicatie
     [] Create product en shop
     [] Error handling
     [] Authentication
+    [] Navbar functioneel maken
+    [] Winkelmandje
+    
 
 [ ] Minimaal 20 commits met zinvolle messages
 

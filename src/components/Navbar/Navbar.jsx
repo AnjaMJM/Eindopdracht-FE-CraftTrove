@@ -16,16 +16,16 @@ import {Link} from "react-router-dom";
 function Navbar() {
     return (
         <div className="nav-bar__container">
-            <Link to="/overview?type=sewing"><img src={sewing} alt="sewing" title="sewing" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=knitting"><img src={knitting} alt="knitting" title="knitting" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=crochet"><img src={crochet} alt="crochet" title="crochet" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=embroidery"><img src={embroidery} alt="embroidery" title="embroidery" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=lace"><img src={lace} alt="lace" title="lace" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=quilt"><img src={quilt} alt="quilt" title="quilt" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=macrame"><img src={macrame} alt="macramé" title="macramé" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=mending"><img src={mending} alt="mending" title="mending" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=felt"><img src={felt} alt="felt" title="felt" className="nav-bar__link-img"/></Link>
-            <Link to="/overview?type=weaving"><img src={weaving} alt="weaving" title="weaving" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/sewing"><img src={sewing} alt="sewing" title="sewing" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/knitting"><img src={knitting} alt="knitting" title="knitting" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/crochet"><img src={crochet} alt="crochet" title="crochet" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/embroidery"><img src={embroidery} alt="embroidery" title="embroidery" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/lace"><img src={lace} alt="lace" title="lace" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/quilt"><img src={quilt} alt="quilt" title="quilt" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/macrame"><img src={macrame} alt="macramé" title="macramé" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/mending"><img src={mending} alt="mending" title="mending" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/felt"><img src={felt} alt="felt" title="felt" className="nav-bar__link-img"/></Link>
+            <Link to="/categories/weaving"><img src={weaving} alt="weaving" title="weaving" className="nav-bar__link-img"/></Link>
         </div>
     );
 }

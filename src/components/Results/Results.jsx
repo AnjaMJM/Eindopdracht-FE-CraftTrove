@@ -1,3 +1,4 @@
+// This Results component is used for a single searchresults, displayed on the Product page
 
 // Names of the props we expect to receive
 const keys = ['title', 'description', 'price', 'rating', 'category'];
