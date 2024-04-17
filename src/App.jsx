@@ -14,15 +14,14 @@ import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
 
-
     return (
         <>
             <Header/>
                 <main className="main-container">
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/overview/:results" element={<Overview/>}/>
-                        <Route path="/product/:id" element={<Product/>}/>
+                        <Route path="/overview" element={<Overview/>}/>
+                        <Route path="/product" element={<Product/>}/>
                         <Route path="/newProduct" element={<NewProduct/>}/>
                         <Route path="/shop/:id" element={<Shop/>}/>
                         <Route path="/newshop/:id" element={<NewShop/>}/>

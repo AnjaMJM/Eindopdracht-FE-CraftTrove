@@ -3,13 +3,26 @@ import treasureChest from "../../assets/treasure.png"
 import {Link} from "react-router-dom";
 import settings from "../../assets/settings.png"
 import shoppingBasket from "../../assets/wicker-basket.png"
+import Searchbar from "../Searchbar/Searchbar.jsx";
+import {useContext } from "react";
+import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
+
 
 function Header() {
-    return (
+    const {products, setResult, fetchData} = useContext(SearchContext)
 
+    console.log("header log", products)
+
+    return (
         <div className="header">
             <h2>CraftTrove Logo</h2>
-            <input type="text" placeholder="searchbar" />
+
+            <Searchbar
+                fetchData={fetchData}
+                setResult={setResult}
+                suggestionKey="title"
+            />
+
             <p>Welcome person</p>
             <ul className="header__nav-list">
                 <li><Link to="/"> <img src={settings} alt="personal settings" className="header__icon"/></Link></li>

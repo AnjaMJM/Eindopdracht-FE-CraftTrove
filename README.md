@@ -6,11 +6,9 @@ axios, react router DOM,
 ### API's: 
 
 fake store https://fakestoreapi.com/
-json servers: http://www.jsonblob.com/1227535449450209280 ???
-https://my-json-server.typicode.com/
-https://getpantry.cloud/
-https://json.psty.io/
+json servers:https://getpantry.cloud/
 
+Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
 
 ## Beoordelingscriteria website:
 
@@ -41,13 +39,13 @@ GIT:
 [ ] Minimaal 5 branches en merches met main branch
 
     [] Gallery Slider
-    [] searchbar
-    [] Pages (aanmaken en basic lay-out)
+    [] searchbar (get data)
+    [X] Pages (aanmaken en basic lay-out)
     [] Winkelmandje
     [] Registratie, authethicatie
     [] Create product en shop
     [] Error handling
-    [] Authenticatie
+    [] Authentication
 
 [ ] Minimaal 20 commits met zinvolle messages
 
@@ -69,3 +67,5 @@ icons via flaticon.com, attributed to:
    - mending by Freepik
    - patch by Freepik
    - bed by Darius Dan
+
+Searchbar is created with help of this tutorial: https://upmostly.com/tutorials/how-to-create-a-search-bar-in-react
