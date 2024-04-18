@@ -8,7 +8,7 @@ const Searchbar = ({setResult, suggestionKey}) => {
     const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
     const [localSuggestions, setLocalSuggestions] = useState([]);
-    const {suggestions, fetchData, handleSelectedResult} = useContext(SearchContext);
+    const {suggestions, fetchData} = useContext(SearchContext);
     const navigate = useNavigate();
 
     useEffect(() => {
