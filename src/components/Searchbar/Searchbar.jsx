@@ -1,24 +1,25 @@
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useState, useEffect} from 'react';
 import "./Searchbar.css";
 import {useDebounce} from "../../hooks/useDebounce";
 import {SearchContext} from "../../context/SearchContext/SearchContext";
-// import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
-const Searchbar = ({suggestionKey}) => {
+const Searchbar = ({setResult, suggestionKey}) => {
     const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
-    const {suggestions, fetchData, setResult} = useContext(SearchContext);
-    // const navigate = useNavigate();
+    const [localSuggestions, setLocalSuggestions] = useState([]);
+    const {suggestions, fetchData, handleSelectedResult} = useContext(SearchContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("value", value);
-    }, [value]);
+        console.log(suggestions)
+        setLocalSuggestions(suggestions.products);
+    }, [suggestions]);
 
     const findResult = (value) => {
         setResult(
-            suggestions.find((suggestion) => suggestion[suggestionKey] === value),
-            // navigate(`/product/${id}`)
+            localSuggestions.find((suggestion) => suggestion[suggestionKey] === value),
+            navigate("/product")
         );
     };
 
@@ -64,7 +65,7 @@ const Searchbar = ({suggestionKey}) => {
                 onChange={handleSearchInputChange}
             />
             <div className={`suggestions ${hideSuggestions ? 'hidden' : ''} `}>
-                {suggestions && suggestions.map((suggestion, index) => (
+                {localSuggestions && localSuggestions.map((suggestion, index) => (
                     <div key={index} className="suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
                         {suggestion[suggestionKey]}
                     </div>

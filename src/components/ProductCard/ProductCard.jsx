@@ -1,25 +1,21 @@
-import "./ProductCard.css"
+import {useContext} from "react";
+import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 
-// This page is for the small descriptions of a pattern, used in Overview.
 
+function ProductCard() {
+    const { products } = useContext(SearchContext);
 
-// eslint-disable-next-line react/prop-types
-function ProductCard({thumbnail, title, brand, description, price}) {
+    // Ensure products is an array and not undefined/null
+    const productList = products && products.products ? products.products : [];
 
+    console.log(productList);
     return (
-        <>
-            <article className="product-card__container">
-                <div>
-                    <img className="product-card__img" src={thumbnail} alt={title}/>
-                </div>
-                <div className="product-card__text">
-                    <h3 className="product-card__title">{title}</h3>
-                    <p>by {brand}</p>
-                    <p className="product-card__price">€{price}</p>
-                    <p>{description}</p>
-                </div>
-            </article>
-        </>
+        <div>
+            {productList.length > 0 && productList.map((product, index) => (
+                <div key={index}>
+                    <p>{product.title}</p>
+                </div>))}
+        </div>
     );
 }
 

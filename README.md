@@ -5,8 +5,8 @@ axios, react router DOM,
 
 ### API's: 
 
-fake store https://dummyjson.com/
-
+fake store https://fakestoreapi.com/
+json servers:https://getpantry.cloud/
 
 Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
 
@@ -15,7 +15,7 @@ Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elk
 [ ] Minimaal 4 kern functionaliteiten;
 
     [] Inloggen/registreren
-    [X] Zoekfunctie
+    [] Zoekfunctie
     [] Toevoegen producten
     [] Winkelmand vullen
     [] Reviews plaatsen
@@ -26,28 +26,26 @@ Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elk
     [] inlog/registratie Form
     [] Gallery Slider
     [] Navbar
-    [x] Header
+    [] Header
     [] Footer
     [] Textfield (product, about designer)
     [] Product Gallery
     [] Modal (inloggen/ registreren)
-    [x] Searchbar
+    [] Searchbar
 
 
 GIT:
 
 [ ] Minimaal 5 branches en merches met main branch
 
-    [] Productpagina
-    [X] searchbar (get data)
+    [] Gallery Slider
+    [] searchbar (get data)
     [X] Pages (aanmaken en basic lay-out)
+    [] Winkelmandje
     [] Registratie, authethicatie
     [] Create product en shop
     [] Error handling
     [] Authentication
-    [] Navbar functioneel maken
-    [] Winkelmandje
-    
 
 [ ] Minimaal 20 commits met zinvolle messages
 
