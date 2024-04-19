@@ -1,8 +1,10 @@
 import ProductCard from "../../components/ProductCard/ProductCard.jsx"
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import "./Overview.css"
+import Results from "../../components/Results/Results.jsx";
+import results from "../../components/Results/Results.jsx";
 
 // After clicking a crafttype in the Navbar, all results will be shown here using ProductCard-components
 
@@ -13,26 +15,36 @@ function Overview() {
     const fetchCategories = async (type) => {
         let types;
         switch (type) {
-            case "sewing" : types="womens-dresses";
-            break;
-            case "knitting" : types="furniture";
-            break;
-            case "crochet" : types="tops";
-            break;
-            case "embroidery" : types="womens-jewellery";
-            break;
-            case "lace" : types="fragrances";
-            break;
-            case "quilt" : types="mens-shirts";
-            break;
-            case "macrame" : types="home-decoration";
-            break;
-            case "mending" : types="skincare";
-            break;
-            case "felt" : types="mens-watches";
-            break;
-            case "weaving" : types="womens-shoes";
-            break;
+            case "sewing" :
+                types = "womens-dresses";
+                break;
+            case "knitting" :
+                types = "furniture";
+                break;
+            case "crochet" :
+                types = "tops";
+                break;
+            case "embroidery" :
+                types = "womens-jewellery";
+                break;
+            case "lace" :
+                types = "fragrances";
+                break;
+            case "quilt" :
+                types = "mens-shirts";
+                break;
+            case "macrame" :
+                types = "home-decoration";
+                break;
+            case "mending" :
+                types = "skincare";
+                break;
+            case "felt" :
+                types = "mens-watches";
+                break;
+            case "weaving" :
+                types = "womens-shoes";
+                break;
         }
 
         try {
@@ -46,7 +58,7 @@ function Overview() {
     };
     useEffect(() => {
         void fetchCategories(type);
-    },[type])
+    }, [type])
 
     console.log("products state", products)
 
@@ -54,14 +66,18 @@ function Overview() {
         <>
             <h2 className="overview__title">These are the results for {type}</h2>
             <div className="overview__content">
-                {products && products.map(({thumbnail, title, brand, description, price}, index) => {
-                return <ProductCard key={index}
-                             thumbnail={thumbnail}
-                             title={title}
-                             brand={brand}
-                             description={description}
-                             price={price} />
-            })}</div>
+                {products && products.map(({id, thumbnail, title, brand, description, price}) => {
+                    return <Link to={`/product/${id}`} key={id}>
+                        <ProductCard
+                            thumbnail={thumbnail}
+                            title={title}
+                            brand={brand}
+                            description={description}
+                            price={price}/>
+                    </Link>
+                })}
+                {/*{results && <Results {...results} />}*/}
+            </div>
         </>
     );
 }

@@ -1,25 +1,24 @@
-import {useContext, useState, useEffect} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import "./Searchbar.css";
 import {useDebounce} from "../../hooks/useDebounce";
 import {SearchContext} from "../../context/SearchContext/SearchContext";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 
-const Searchbar = ({setResult, suggestionKey}) => {
+// eslint-disable-next-line react/prop-types
+const Searchbar = ({suggestionKey}) => {
     const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
-    const [localSuggestions, setLocalSuggestions] = useState([]);
-    const {suggestions, fetchData} = useContext(SearchContext);
-    const navigate = useNavigate();
+    const {suggestions, fetchData, setResult} = useContext(SearchContext);
+    // const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(suggestions)
-        setLocalSuggestions(suggestions.products);
-    }, [suggestions]);
+        console.log("value", value);
+    }, [value]);
 
     const findResult = (value) => {
         setResult(
-            localSuggestions.find((suggestion) => suggestion[suggestionKey] === value),
-            navigate("/product")
+            suggestions.find((suggestion) => suggestion[suggestionKey] === value),
+            // navigate(`/product/${id}`)
         );
     };
 
@@ -65,7 +64,7 @@ const Searchbar = ({setResult, suggestionKey}) => {
                 onChange={handleSearchInputChange}
             />
             <div className={`suggestions ${hideSuggestions ? 'hidden' : ''} `}>
-                {localSuggestions && localSuggestions.map((suggestion, index) => (
+                {suggestions && suggestions.map((suggestion, index) => (
                     <div key={index} className="suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
                         {suggestion[suggestionKey]}
                     </div>

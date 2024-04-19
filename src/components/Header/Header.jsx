@@ -9,9 +9,8 @@ import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 
 
 function Header() {
-    const {products, setResult, fetchData} = useContext(SearchContext)
+    const {setResult, fetchData} = useContext(SearchContext)
 
-    console.log("header log", products)
 
     return (
         <div className="header">

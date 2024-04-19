@@ -95,7 +95,7 @@ export function getRandomKeywords() {
         "Argyle",
         "Doll",
         "Damask",
-        "Toile",
+        "Wallhanging",
         "Ikat",
         "Baby",
         "Animals",
