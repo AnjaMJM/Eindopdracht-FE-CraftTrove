@@ -1,0 +1,27 @@
+.product__wrapper {
+    margin: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.product__left-column {
+    max-width: 466px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.product__right-column {
+    max-width: 466px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.product__pattern-specification {
+    border: 1px solid var(--accent-color-red);
+    border-radius: 20px;
+    padding: 20px;
+}
