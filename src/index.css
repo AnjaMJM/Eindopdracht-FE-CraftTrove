@@ -16,10 +16,23 @@
     --text-color-black: #002838;
 }
 
-body {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input,
+textarea {
     font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     color: var(--text-color-black);
+}
+
+body {
+
     min-height: 100vh;
 }

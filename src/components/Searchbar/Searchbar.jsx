@@ -18,7 +18,7 @@ const Searchbar = ({suggestionKey}) => {
     const findResult = (value) => {
         setResult(
             suggestions.find((suggestion) => suggestion[suggestionKey] === value),
-            // navigate(`/product/${id}`)
+            
         );
     };
 

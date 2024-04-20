@@ -38,12 +38,12 @@ GIT:
 
 [ ] Minimaal 5 branches en merches met main branch
 
-    [] Productpagina
+    [] Gallery Slider
     [X] searchbar (get data)
     [X] Pages (aanmaken en basic lay-out)
     [] Registratie, authethicatie
     [] Create product en shop
-    [] Error handling
+    [] Error handling -- incl. searchbar reusability
     [] Authentication
     [] Navbar functioneel maken
     [] Winkelmandje
