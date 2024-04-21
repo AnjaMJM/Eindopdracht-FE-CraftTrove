@@ -22,6 +22,7 @@ function Header() {
     // to different options to open the AuthFormModal, one to register and one to login.
     const handleOpenModalRegister = () => {
         setIsAuthFormModalOpen(true);
+        setRegister(true)
     }
     const handleOpenModalLogin = () => {
         setIsAuthFormModalOpen(true);
@@ -36,6 +37,15 @@ function Header() {
         setAuthFormData(data);
         handleCloseAuthFormModal();
     }
+
+    const handleTabChange = (event) => {
+        if (event.target.id === 'tab-register') {
+            setRegister(true);
+        } else {
+            setRegister(false);
+        }
+    };
+
     return (
         <>
             <div className="header">
@@ -73,7 +83,9 @@ function Header() {
                 register={register}
                 isOpen={isAuthFormModalOpen}
                 onSubmit={handleFormSubmit}
-                onClose={handleCloseAuthFormModal}/>
+                onClose={handleCloseAuthFormModal}
+                tabChange={handleTabChange}
+            />
         </>
 
     );

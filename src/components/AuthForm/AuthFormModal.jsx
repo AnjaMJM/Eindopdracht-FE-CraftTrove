@@ -4,7 +4,6 @@ import Modal from "../Modal/Modal.jsx";
 
 
 function AuthFormModal({
-                           buttonName,
                            handleSubmit,
                            handleChange,
                            usernameValue,
@@ -12,25 +11,37 @@ function AuthFormModal({
                            passwordValue,
                            register,
                            isOpen,
-                           onClose
+                           onClose,
+    tabChange
                        }) {
 
 
     return (
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose}>
-            <div className="modal__tabs">
-                <button className="modal__tablinks" onClick={register}>Register</button>
-                <button className="modal__tablinks" onClick={!register}>Login</button>
+            <div className="modal__tab-wrap">
+                <div className="modal__tab">
+                    <input type="radio" id="tab-register" name="modal-tabs" onChange={tabChange} checked={register} />
+                    <label htmlFor="tab-register">Register</label>
+                </div>
+                <div className="modal__tab">
+                    <input type="radio" id="tab-login" name="modal-tabs" onChange={tabChange} checked={!register} />
+                    <label htmlFor="tab-login">Login</label>
+                </div>
             </div>
-            <form onSubmit={handleSubmit}>
-                {register && <input type="text"
-                                    name="username" value={usernameValue} onChange={handleChange} placeholder="Gebruikersnaam"
-                />}
+            <form onSubmit={handleSubmit} className="auth-form">
+                {register && (
+                    <input type="text"
+                           name="username" value={usernameValue} onChange={handleChange}
+                           placeholder="Gebruikersnaam"
+                    />
+                )}
                 <input type="email" name="email" value={emailValue} onChange={handleChange} placeholder="e-mailadres"/>
                 <input type="password" name="password" value={passwordValue} onChange={handleChange}
                        placeholder="wachtwoord"/>
                 <Button type="submit"
-                        btnText="Submit"/>
+                        btnText="Submit"
+                        colorscheme="blue"
+                />
             </form>
         </Modal>
     );

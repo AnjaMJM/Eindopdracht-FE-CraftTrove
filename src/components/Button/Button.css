@@ -11,8 +11,12 @@
 
 .btn__blue {
     border-color: var(--accent-color-darkblue);
-    background-color: var(--accent-color-lightblue);
+    background-color: var(--bg-color-blue);
     color: var(--accent-color-darkblue);
+}
+
+.btn__blue:hover {
+    background-color: var(--accent-color-lightblue);
 }
 
 .btn__yellow {

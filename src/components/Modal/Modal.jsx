@@ -1,6 +1,7 @@
 import {useRef, useEffect, useState} from 'react';
 import './Modal.css';
 import Button from "../Button/Button.jsx";
+import AuthFormModal from "../AuthForm/AuthFormModal.jsx";
 
 const Modal = ({isOpen, onClose, children}) => {
     const [isModalOpen, setModalOpen] = useState(isOpen);
@@ -43,6 +44,7 @@ const Modal = ({isOpen, onClose, children}) => {
                     <Button type="button"
                             handleClick={handleCloseModal}
                             btnText="Close"
+                            colorscheme={AuthFormModal? "blue" : "default"}
                     />
                 </div>
             {children}
