@@ -12,7 +12,7 @@ function AuthFormModal({
                            register,
                            isOpen,
                            onClose,
-    tabChange
+                           tabChange
                        }) {
 
 
@@ -20,31 +20,64 @@ function AuthFormModal({
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose}>
             <div className="modal__tab-wrap">
                 <div className="modal__tab">
-                    <input type="radio" id="tab-register" name="modal-tabs" onChange={tabChange} checked={register} />
+                    <input type="radio" id="tab-register" name="modal-tabs" onChange={tabChange} checked={register}/>
                     <label htmlFor="tab-register">Register</label>
                 </div>
                 <div className="modal__tab">
-                    <input type="radio" id="tab-login" name="modal-tabs" onChange={tabChange} checked={!register} />
+                    <input type="radio" id="tab-login" name="modal-tabs" onChange={tabChange} checked={!register}/>
                     <label htmlFor="tab-login">Login</label>
                 </div>
             </div>
+
             <form onSubmit={handleSubmit} className="auth-form">
                 {register && (
-                    <input type="text"
-                           name="username" value={usernameValue} onChange={handleChange}
-                           placeholder="Gebruikersnaam"
-                    />
+                    <div className="auth-form__input">
+                        <input type="text"
+                               name="username" id="username"
+                               value={usernameValue}
+                               onChange={handleChange}
+                               placeholder="Username"
+                               required/>
+                        <div className="auth-form__underline"></div>
+                    </div>
                 )}
-                <input type="email" name="email" value={emailValue} onChange={handleChange} placeholder="e-mailadres"/>
-                <input type="password" name="password" value={passwordValue} onChange={handleChange}
-                       placeholder="wachtwoord"/>
+                <div className="auth-form__input">
+                    <input type="email"
+                           name="email"
+                           id="email"
+                           value={emailValue}
+                           onChange={handleChange}
+                           placeholder="Email address"
+                           required/>
+                    <div className="auth-form__underline"></div>
+                </div>
+                <div className="auth-form__input">
+                    <input type="password"
+                           name="password"
+                           id="password"
+                           value={passwordValue}
+                           onChange={handleChange}
+                           placeholder="Password"
+                           required/>
+                    <div className="auth-form__underline"></div>
+                </div>
+
+                {register && (
+                    <div className="auth-form__radio">
+                        <input type="radio" id="user-creative" name="user-type"/>
+                        <label htmlFor="user-creative">Creative</label>
+                        <input type="radio" id="user-designer" name="user-type"/>
+                        <label htmlFor="user-designer">Designer</label>
+                    </div>
+                )}
                 <Button type="submit"
                         btnText="Submit"
                         colorscheme="blue"
                 />
             </form>
         </Modal>
-    );
+    )
+        ;
 }
 
 export default AuthFormModal;

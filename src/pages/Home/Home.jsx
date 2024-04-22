@@ -6,10 +6,10 @@ import results from "../../components/Results/Results.jsx";
 import Results from "../../components/Results/Results.jsx";
 
 function Home() {
-    // const { products } = useContext(SearchContext);
+    // const { result } = useContext(SearchContext);
     //
-    // // Ensure products is an array and not undefined/null
-    // const productList = products && products.products ? products.products : [];
+    // // Ensure result is an array and not undefined/null
+    // const productList = result && result.result ? result.result : [];
     //
     // console.log(productList);
     const {products} = useContext(SearchContext)

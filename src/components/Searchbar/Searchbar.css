@@ -38,8 +38,8 @@
 
 .suggestion {
     /* Styling of a single suggestion */
+    font-family: var(--font-family-lexend);
     cursor: pointer;
-    box-sizing: border-box;
     padding: 1px 10px;
     height: 2rem;
     display: flex;

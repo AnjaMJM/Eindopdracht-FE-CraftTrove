@@ -1,26 +1,27 @@
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useState} from 'react';
 import "./Searchbar.css";
 import {useDebounce} from "../../hooks/useDebounce";
 import {SearchContext} from "../../context/SearchContext/SearchContext";
+// import {createLogger} from "vite";
 // import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Searchbar = ({suggestionKey}) => {
-    const [value, setValue] = useState(''); // Value of the search bar
+    // const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
-    const {suggestions, fetchData, setResult} = useContext(SearchContext);
+    const {suggestions, fetchData, setResult, value, setValue} = useContext(SearchContext);
     // const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log("value", value);
-    }, [value]);
+    // useEffect(() => {
+    //     console.log("value", value);
+    // }, [value]);
 
     const findResult = (value) => {
-        setResult(
-            suggestions.find((suggestion) => suggestion[suggestionKey] === value),
-            
-        );
+        const selectedSuggestion = suggestions.find((suggestion) => suggestion[suggestionKey] === value);
+        console.log("Selected Suggestion:", selectedSuggestion);
+        setResult(selectedSuggestion);
     };
+
 
     useDebounce(
         async () => {

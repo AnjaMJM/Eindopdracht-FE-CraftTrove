@@ -60,7 +60,7 @@ function Overview() {
         void fetchCategories(type);
     }, [type])
 
-    console.log("products state", products)
+    console.log("result state", products)
 
     return (
         <>

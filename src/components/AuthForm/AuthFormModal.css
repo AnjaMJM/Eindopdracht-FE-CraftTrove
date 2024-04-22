@@ -38,12 +38,64 @@
 }
 
 .auth-form {
+    max-width: 800px;
+    background: #fff;
+    padding: 25px 40px 10px 40px;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
-    margin-top: 20px;
 }
 
-.auth-form input {
+
+.auth-form__input input {
+    /*display: block;*/
+    /*width: 80%;*/
+    /*height: 100%;*/
+
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+.auth-form__underline {
+    position: relative;
+    bottom: 2px;
+    height: 2px;
+}
+
+.auth-form__underline:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: var(--accent-color-lightblue);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.auth-form__input input:focus ~ .auth-form__underline:before,
+.auth-form__input input:valid ~ .auth-form__underline:before {
+    transform: scale(1);
 
 }
+
+/*doesn't work yet...*/
+.auth-form__input input:invalid ~ .auth-form__underline:after{
+    transform: scale(1);
+    background: var(--accent-color-red);
+}
+
+.auth-form__radio {
+
+}
+
+.auth-form__radio [type=radio] {
+   accent-color: var(--accent-color-lightblue);
+    border: none;
+
+}
+
