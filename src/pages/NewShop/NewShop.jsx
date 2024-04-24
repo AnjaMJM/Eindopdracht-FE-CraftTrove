@@ -1,8 +1,11 @@
 import "./NewShop.css"
 import {useState} from "react";
+import addProduct from "../../assets/add-post.png"
+import {Link} from "react-router-dom";
+import Button from "../../components/Button/Button.jsx";
 
 function NewShop() {
-    let [formState, setFormState] = useState({
+    let [shopFormState, setShopFormState] = useState({
         username: "",
         shopName: "",
         aboutShop: "",
@@ -11,8 +14,8 @@ function NewShop() {
     })
 
     function handleChange(e) {
-        setFormState({
-            ...formState,
+        setShopFormState({
+            ...shopFormState,
             [changedFieldName]: e.target.value,
         })
         console.log()
@@ -21,13 +24,12 @@ function NewShop() {
     //
     // function handleSubmit(e) {
     //     e.preventDefault();
-    //     console.log("shop form", formState)
+    //     console.log("shop form", shopFormState)
     // }
 
     return (
         <>
-            <div><p>Here a designer can set up shop, tell something about themselves and create a new productpage.
-                Authorization required</p></div>
+            <h2 className="new-shop__title"> Let's set up shop! </h2>
             <form className="new-shop__form">
                 <div className="new-shop__form-group">
                     <div className="new-shop__form-group-names">
@@ -36,7 +38,7 @@ function NewShop() {
                             id="username"
                             type="text"
                             name="username"
-                            value={formState.username}
+                            value={shopFormState.username}
                             onChange={handleChange}
                         />
                         <label htmlFor="shopName">Shop name:</label>
@@ -44,20 +46,21 @@ function NewShop() {
                             id="shopName"
                             type="text"
                             name="ShopName"
-                            value={formState.shopName}
+                            value={shopFormState.shopName}
                             onChange={handleChange}
                         />
                     </div>
                     <div className="new-shop__form-image-upload">
                         <label htmlFor="logoShop">Shop logo:</label>
-                        <input id="logoShop"
-                               type="file"
-                               name="logoShop"
-                               accept="image/png, image/jpg"
-                               className="new-shop__form-image-upload-button"
-                               value={formState.logoShop}
-                               onChange={handleChange}
-                        />
+                        <div className="new-shop__form-image-upload-box">
+                            <input id="logoShop"
+                                   type="file"
+                                   name="logoShop"
+                                   accept="image/png, image/jpg"
+                                   className="new-shop__form-image-upload-button"
+                                   value={shopFormState.logoShop}
+                                   onChange={handleChange}
+                            /></div>
                     </div>
                 </div>
                 <div className="new-shop__form-about">
@@ -68,8 +71,19 @@ function NewShop() {
                               cols="40"
                               className="new-shop__textarea"
                     ></textarea>
-
                 </div>
+                <div className="new-shop__add-product">
+                    <p>Products in your shop:</p>
+                    <Link to="/newproduct"><img src={addProduct}
+                                                alt="Add product to shop"
+                                                className="new-shop__add-product-image"/>
+                    </Link>
+                </div>
+
+                    <Button
+                        type="submit"
+                        btnText="Save changes"
+                        colorscheme="blue" />
             </form>
         </>
     );
