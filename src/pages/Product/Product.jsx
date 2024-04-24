@@ -37,7 +37,7 @@ function Product() {
     useEffect(() => {
         console.log("result changed", result)
         void fetchProduct();
-    }, [result]);
+    }, [id]);
 
     const {title, brand, description, price, thumbnail} = product;
 
@@ -68,7 +68,7 @@ function Product() {
                                     <Button
                                         type="button"
                                         btnText="Add to wishlist"
-                                    {/*  Or if not authorized, this button should prompt registration, or it's only visible when logged in  */}
+                                      // Or if not authorized, this button should prompt registration, or it's only visible when logged in
                                     />
                                 </div>
                                 <p>{description}</p>

@@ -1,0 +1,72 @@
+.new-shop__form {
+    margin: auto;
+    width: 80vw;
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.new-shop__form label{
+    margin-left: 20px;
+}
+
+.new-shop__form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.new-shop__form-group-names {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.new-shop__form input {
+    border: 3px solid var(--accent-color-lightblue);
+    border-radius: 999px;
+    height: 2rem;
+    outline: none;
+    padding: 1px 10px;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.new-shop__form input:focus {
+    /* We'll change the border color of the textbox as long as it is being focused */
+    border: 3px solid var(--accent-color-darkblue);
+    transition: 0.2s ease-in-out;
+}
+
+.new-shop__form-image-upload {
+    display: flex;
+    flex-direction: column;
+    gap:5px
+}
+
+.new-shop__form-image-upload-button {
+    border: none;
+    background: white;
+}
+
+.new-shop__form-about {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.new-shop__textarea {
+    border: 3px solid var(--accent-color-lightblue);
+    border-radius: 20px;
+    outline: none;
+    padding: 1px 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.new-shop__textarea:focus {
+    border: 3px solid var(--accent-color-darkblue);
+    transition: 0.2s ease-in-out;
+}
+

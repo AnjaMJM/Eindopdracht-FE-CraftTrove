@@ -59,14 +59,14 @@ const Searchbar = ({suggestionKey}) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 type="search"
-                className='textbox'
+                className='searchbar__textbox'
                 placeholder="Search data..."
                 value={value}
                 onChange={handleSearchInputChange}
             />
-            <div className={`suggestions ${hideSuggestions ? 'hidden' : ''} `}>
+            <div className={`searchbar__suggestions ${hideSuggestions ? 'hidden' : ''} `}>
                 {suggestions && suggestions.map((suggestion, index) => (
-                    <div key={index} className="suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
+                    <div key={index} className="searchbar__suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
                         {suggestion[suggestionKey]}
                     </div>
                 ))}
