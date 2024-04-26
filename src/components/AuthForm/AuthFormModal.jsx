@@ -9,6 +9,7 @@ function AuthFormModal({
                            usernameValue,
                            emailValue,
                            passwordValue,
+                            isButtonSelected,
                            register,
                            isOpen,
                            onClose,
@@ -58,15 +59,18 @@ function AuthFormModal({
                            value={passwordValue}
                            onChange={handleChange}
                            placeholder="Password"
+                            minLength="8"
                            required/>
                     <div className="auth-form__underline"></div>
                 </div>
 
                 {register && (
                     <div className="auth-form__radio">
-                        <input type="radio" id="user-creative" name="user-type"/>
+                        <input type="radio" id="user-creative" name="user-type" value="user-creative"
+                        />
                         <label htmlFor="user-creative">Creative</label>
-                        <input type="radio" id="user-designer" name="user-type"/>
+                        <input type="radio" id="user-designer" name="user-type" value="user-designer"
+                        />
                         <label htmlFor="user-designer">Designer</label>
                     </div>
                 )}
