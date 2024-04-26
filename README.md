@@ -47,6 +47,8 @@ GIT:
     [] Error handling -- incl. searchbar reusability
     [] Authentication
     [] Navbar functioneel maken
+    [] Error handling -- search results clearing after result is set on page
+    [X] Navbar functioneel maken
     [] Winkelmandje
     
 
