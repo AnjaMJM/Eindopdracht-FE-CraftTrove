@@ -114,7 +114,7 @@ function NewProduct() {
 
                 <div className="new-product__form-image-upload">
                     <label htmlFor="logoShop">Add Photo
-                    <input id="logoShop"
+                        <input id="logoShop"
                                type="file"
                                name="logoShop"
                                accept="image/png, image/jpg"

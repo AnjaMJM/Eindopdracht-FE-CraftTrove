@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: row;
     gap: 50px;
+    width: 100%;
 }
 
 .new-product__form-group input {
@@ -90,7 +91,6 @@
 
 .new-product__difficulty-radio [type="radio"] {
     accent-color: var(--accent-color-lightblue);
-    border: none;
     margin-left: 15px;
 }
 
@@ -118,13 +118,15 @@
 .new-product__form-image-upload {
     display: flex;
     flex-direction: column;
-    gap:5px
+    gap: 5px;
+    cursor: pointer;
 }
 
 .new-product__form-image-upload-button {
     opacity: 0;
     position: absolute;
-    cursor: pointer;
+    width: 1px;
+    height: 1px;
 }
 
 .new-product__form-image-upload label {

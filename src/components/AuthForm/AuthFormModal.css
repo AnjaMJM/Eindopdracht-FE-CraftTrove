@@ -90,12 +90,13 @@
 }
 
 .auth-form__radio {
-
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 
 .auth-form__radio [type=radio] {
    accent-color: var(--accent-color-lightblue);
-    border: none;
-
+    margin-left: 15px;
 }
 
