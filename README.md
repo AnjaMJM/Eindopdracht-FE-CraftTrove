@@ -72,3 +72,5 @@ icons via flaticon.com, attributed to:
    - add-post by HideMaru
 
 Searchbar is created with help of this tutorial: https://upmostly.com/tutorials/how-to-create-a-search-bar-in-react
+
+login: CraftTrove, info@crafttrove.nl, wachtwoord

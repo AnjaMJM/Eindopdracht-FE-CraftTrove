@@ -1,11 +1,13 @@
-import { useState } from "react";
+import {useContext, useState} from "react";
 import axios from "axios";
+import {AuthContext} from "../context/AuthContext/AuthContext.jsx";
 
 export function useLogin() {
     const [loginData, setLoginData] = useState({
-        email: "",
+        username: "",
         password: ""
     });
+const {login} = useContext(AuthContext)
 
     const handleLoginChange = (e) => {
         const changedFieldName = e.target.name;
@@ -15,14 +17,14 @@ export function useLogin() {
         });
     };
 
-    const handleLogin = async (e, login) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const { email, password } = loginData;
+            const { username, password } = loginData;
             const response = await axios.post(
                 "https://api.datavortex.nl/crafttrove/users/authenticate",
                 {
-                    email,
+                    username,
                     password,
                 }, {
                     headers: {
@@ -32,7 +34,8 @@ export function useLogin() {
                 }
             );
             if (response.status === 200) {
-                login(response.data.accessToken);
+                login(response.data.jwt);
+                console.log("login succesvol", response)
             }
         } catch (err) {
             console.error("Login failed", err);

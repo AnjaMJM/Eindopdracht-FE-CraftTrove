@@ -31,7 +31,7 @@ function AuthFormModal({
             </div>
 
             <form onSubmit={handleSubmit} className="auth-form">
-                {register && (
+
                     <div className="auth-form__input">
                         <input type="text"
                                name="username" id="username"
@@ -41,8 +41,8 @@ function AuthFormModal({
                                required/>
                         <div className="auth-form__underline"></div>
                     </div>
-                )}
-                <div className="auth-form__input">
+
+                {register && (<div className="auth-form__input">
                     <input type="email"
                            name="email"
                            id="email"
@@ -51,7 +51,8 @@ function AuthFormModal({
                            placeholder="Email address"
                            required/>
                     <div className="auth-form__underline"></div>
-                </div>
+                </div>)}
+
                 <div className="auth-form__input">
                     <input type="password"
                            name="password"

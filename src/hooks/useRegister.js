@@ -1,5 +1,6 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import axios from "axios";
+import {AuthContext} from "../context/AuthContext/AuthContext.jsx";
 
 export function useRegister() {
     const [registerData, setRegisterData] = useState({
@@ -8,7 +9,7 @@ export function useRegister() {
         password: "",
         // authorities: ""
     });
-
+    const {login} =useContext(AuthContext)
 
     const handleRegisterChange = (e) => {
         const newValue = e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -39,8 +40,9 @@ export function useRegister() {
                 }
             );
             console.log("Gebruiker is geregistreerd", response)
-        } catch
-            (err) {
+            if (response.status === 200) {
+                login(response.data.accessToken)}
+        } catch (err) {
             console.error("Registration failed", err);
             // Handle login failure, e.g., show error message to the user
         }

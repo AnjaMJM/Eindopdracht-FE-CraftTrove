@@ -88,10 +88,10 @@ function Header() {
                 handleSubmit={register ? handleRegister : handleLogin}
                 onClose={handleCloseAuthFormModal}
                 tabChange={handleTabChange}
-                handleChange={register? handleRegisterChange : handleLoginChange}
-                usernameValue={registerData.username}
-                emailValue={register? registerData.email : loginData.email}
-                passwordValue={register? registerData.password : loginData.password}
+                handleChange={register ? handleRegisterChange : handleLoginChange}
+                usernameValue={register ? registerData.username : loginData.email}
+                emailValue={register ? registerData.email : ""}
+                passwordValue={register ? registerData.password : loginData.password}
                 // isButtonSelected
 
             />
