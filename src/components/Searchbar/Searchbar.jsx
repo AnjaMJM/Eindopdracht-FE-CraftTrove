@@ -1,26 +1,27 @@
-import {useContext, useEffect, useState} from 'react';
+import {useContext, useState} from 'react';
 import "./Searchbar.css";
 import {useDebounce} from "../../hooks/useDebounce";
 import {SearchContext} from "../../context/SearchContext/SearchContext";
+// import {createLogger} from "vite";
 // import {useNavigate} from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const Searchbar = ({suggestionKey}) => {
-    const [value, setValue] = useState(''); // Value of the search bar
+    // const [value, setValue] = useState(''); // Value of the search bar
     const [hideSuggestions, setHideSuggestions] = useState(true);
-    const {suggestions, fetchData, setResult} = useContext(SearchContext);
+    const {suggestions, fetchData, setResult, value, setValue} = useContext(SearchContext);
     // const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log("value", value);
-    }, [value]);
+    // useEffect(() => {
+    //     console.log("value", value);
+    // }, [value]);
 
     const findResult = (value) => {
-        setResult(
-            suggestions.find((suggestion) => suggestion[suggestionKey] === value),
-            // navigate(`/product/${id}`)
-        );
+        const selectedSuggestion = suggestions.find((suggestion) => suggestion[suggestionKey] === value);
+        console.log("Selected Suggestion:", selectedSuggestion);
+        setResult(selectedSuggestion);
     };
+
 
     useDebounce(
         async () => {
@@ -58,14 +59,14 @@ const Searchbar = ({suggestionKey}) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 type="search"
-                className='textbox'
+                className='searchbar__textbox'
                 placeholder="Search data..."
                 value={value}
                 onChange={handleSearchInputChange}
             />
-            <div className={`suggestions ${hideSuggestions ? 'hidden' : ''} `}>
+            <div className={`searchbar__suggestions ${hideSuggestions ? 'hidden' : ''} `}>
                 {suggestions && suggestions.map((suggestion, index) => (
-                    <div key={index} className="suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
+                    <div key={index} className="searchbar__suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
                         {suggestion[suggestionKey]}
                     </div>
                 ))}

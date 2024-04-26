@@ -1,0 +1,102 @@
+.modal__tab-wrap {
+    transition: 0.3s box-shadow ease;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    margin: 40px 0;
+}
+
+.modal__tab {
+    flex: 1;
+    /*width:10rem;*/
+}
+
+.modal__tab label {
+    display: block;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+    background: var(--bg-color-blue);
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+
+.modal__tab label:hover {
+    background: var(--accent-color-lightblue);
+}
+
+.modal__tab [type=radio] {
+    display: none;
+}
+
+.modal__tab [type=radio]:checked ~ label {
+    background-color: white;
+}
+
+.auth-form {
+    max-width: 800px;
+    background: #fff;
+    padding: 25px 40px 10px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.auth-form__input input {
+    /*display: block;*/
+    /*width: 80%;*/
+    /*height: 100%;*/
+
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+.auth-form__underline {
+    position: relative;
+    bottom: 2px;
+    height: 2px;
+}
+
+.auth-form__underline:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: var(--accent-color-lightblue);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.auth-form__input input:focus ~ .auth-form__underline:before,
+.auth-form__input input:valid ~ .auth-form__underline:before {
+    transform: scale(1);
+
+}
+
+/*doesn't work yet...*/
+.auth-form__input input:invalid ~ .auth-form__underline:after{
+    transform: scale(1);
+    background: var(--accent-color-red);
+}
+
+.auth-form__radio {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.auth-form__radio [type=radio] {
+   accent-color: var(--accent-color-lightblue);
+    margin-left: 15px;
+}
+

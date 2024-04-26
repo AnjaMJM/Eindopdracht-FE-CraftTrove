@@ -12,25 +12,26 @@ Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elk
 
 ## Beoordelingscriteria website:
 
-[ ] Minimaal 4 kern functionaliteiten;
+[ ] Minimaal 4 kern functionaliteiten; (ophalen en manipuleren van data in de API)
 
     [] Inloggen/registreren
     [X] Zoekfunctie
     [] Toevoegen producten
     [] Winkelmand vullen
-    [] Reviews plaatsen
+    [] Wishlist maken
+    [] random product slider
+    [X] producten filteren op categorie
 
 [ ] Minimaal 6 herbruikbare componenten
     
-    [] Button
-    [] inlog/registratie Form
+    [x] Button
+    [x] inlog/registratie Form
     [] Gallery Slider
-    [] Navbar
+    [x] Navbar
     [x] Header
     [] Footer
-    [] Textfield (product, about designer)
-    [] Product Gallery
-    [] Modal (inloggen/ registreren)
+    [x] Productcard
+    [x] Modal (inloggen/ registreren)
     [x] Searchbar
 
 
@@ -43,6 +44,9 @@ GIT:
     [X] Pages (aanmaken en basic lay-out)
     [] Registratie, authethicatie
     [] Create product en shop
+    [] Error handling -- incl. searchbar reusability
+    [] Authentication
+    [] Navbar functioneel maken
     [] Error handling -- search results clearing after result is set on page
     [X] Navbar functioneel maken
     [] Winkelmandje
@@ -68,5 +72,6 @@ icons via flaticon.com, attributed to:
    - mending by Freepik
    - patch by Freepik
    - bed by Darius Dan
+   - add-post by HideMaru
 
 Searchbar is created with help of this tutorial: https://upmostly.com/tutorials/how-to-create-a-search-bar-in-react

@@ -1,0 +1,110 @@
+.new-shop__title {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.new-shop__form {
+    margin: 40px;
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.new-shop__form label{
+    margin-left: 20px;
+}
+
+.new-shop__form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.new-shop__form-group-names {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+.new-shop__form-group-names input {
+    border: 3px solid var(--accent-color-lightblue);
+    border-radius: 999px;
+    height: 2rem;
+    width: 300px;
+    outline: none;
+    padding: 1px 10px;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.new-shop__form-group-names input:focus {
+    /* We'll change the border color of the textbox as long as it is being focused */
+    border: 3px solid var(--accent-color-darkblue);
+    transition: 0.2s ease-in-out;
+}
+
+.new-shop__form-image-upload {
+    display: flex;
+    flex-direction: column;
+    gap:5px
+}
+
+.new-shop__form-image-upload-button {
+    opacity: 0;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.new-shop__form-image-upload-box {
+    display: block;
+    position: relative;
+    border: 3px solid var(--accent-color-lightblue);
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+.new-shop__form-image-upload-box:focus {
+    border: 3px solid var(--accent-color-darkblue);
+}
+
+.new-shop__form-about {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.new-shop__textarea {
+    border: 3px solid var(--accent-color-lightblue);
+    border-radius: 20px;
+    outline: none;
+    padding: 1px 10px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    resize: none;
+}
+
+.new-shop__textarea:focus {
+    border: 3px solid var(--accent-color-darkblue);
+    transition: 0.2s ease-in-out;
+}
+
+.new-shop__add-product {
+    width: 500px;
+}
+
+.new-shop__add-product p {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.new-shop__add-product-image {
+    width: 40px;
+}
+

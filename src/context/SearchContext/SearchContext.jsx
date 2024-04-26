@@ -1,26 +1,19 @@
-import { createContext, useEffect, useState } from "react";
+import {createContext, useEffect, useLayoutEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 
 export const SearchContext = createContext(null);
 
-// Data in één keer binnenhalen en opslaan in [ result ]
-// Alle mogelijke zoekwoorden verzamelen uit designers.craft_type, designers.patterns.craft_type en designers.patterns.keywords [ searchOptions ] --> array met zoekwoorden, om te gebruiken voor searchbar.
-// Nadat een searchOption is gekozen, wordt met find het bijbehorende object/objecten opgehaald en in een productCard gezet op de Overview-pagina
-
-
-
 
 // eslint-disable-next-line react/prop-types
-function SearchContextProvider({ children }) {
+function SearchContextProvider({children}) {
     const [result, setResult] = useState(null);
-    const [resultId, setResultId] = useState(null);
+    const [value, setValue] = useState(''); // Value of the search bar
     const [suggestions, setSuggestions] = useState([]);
     const [selectedResult, setSelectedResult] = useState(null);
 
-const navigate = useNavigate()
-    // const id = result.id.toString()
+    const navigate = useNavigate()
 
     const fetchData = async (value) => {
         try {
@@ -29,11 +22,8 @@ const navigate = useNavigate()
             );
             console.log("value in fetchData", value);
             setSuggestions(response.data.products); // Set suggestions based on API response
-            // setResult(response.data);
-            // setResultId(response.data.products[0].id)
             console.log("response", response)
-            console.log("response.products.data.id",response.data.products[0].id)
-            console.log("response.data.products", response.data.products)
+            console.log("response.data.result", response.data.products)
 
         } catch (err) {
             console.error(err);
@@ -50,25 +40,27 @@ const navigate = useNavigate()
 
     useEffect(() => {
         void fetchData();
-    }, []);
+    }, [value]);
 
     const handleSelectedResult = (suggestions) => {
         setSelectedResult(suggestions);
         navigate("/overview")
     }
 
-    useEffect ( () => {
-    let id;
-    if (result != null) {
-        id = result.id.toString()
-        navigate(`/product/${id}`)
-    } else {
-        console.log("id is not defined")
-    }
+    useEffect(() => {
+        let id;
+        if (result != null) {
+            id = result.id.toString()
+            navigate(`/product/${id}`)
+        } else {
+            console.log("id is not defined")
+        }
     }, [result])
 
     const searchData = {
-        products: result,
+        result,
+        value,
+        setValue,
         suggestions, // Include suggestions in the context value
         setResult,
         fetchData,

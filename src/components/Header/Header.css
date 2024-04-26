@@ -6,7 +6,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-
 }
 
 .header__nav-list {
@@ -16,6 +15,17 @@
     gap: 20px;
 }
 
+.header__login {
+    display: flex;
+    gap: 20px;
+}
+
+.header__logout {
+    display: flex;
+    gap: 20px;
+}
+
 .header__icon {
     width:40px;
 }
+

@@ -1,5 +1,5 @@
 // import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import "./Product.css"
 import {
     getRandomDifficulty,
@@ -9,16 +9,20 @@ import {
 } from "../../helpers/randomProductDescriptionHelper.js";
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
+import Button from "../../components/Button/Button.jsx";
 
 function Product() {
     // After a product is selected in the searchbar, an ID will be extracted and stored in productId
-    // const {productId} = useContext(SearchContext);
+    const {result, setResult} = useContext(SearchContext);
     const {id} = useParams();
-
+    console.log("result in product.jsx", result)
     const [product, setProduct] = useState([]);
+    console.log("id in product", id)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchProduct = async () => {
+        console.log("fetchtProduct called")
         try {
             const response = await axios.get(
                 `https://dummyjson.com/products/${id}`
@@ -31,8 +35,9 @@ function Product() {
     };
 
     useEffect(() => {
+        console.log("result changed", result)
         void fetchProduct();
-    }, []);
+    }, [id]);
 
     const {title, brand, description, price, thumbnail} = product;
 
@@ -56,7 +61,15 @@ function Product() {
                                 <h4>By {brand}</h4>
                                 <div>
                                     <p>€{price}</p>
-                                    <button>add to cart</button>
+                                    <Button
+                                        type="button"
+                                        btnText="Add to basket"
+                                    />
+                                    <Button
+                                        type="button"
+                                        btnText="Add to wishlist"
+                                      // Or if not authorized, this button should prompt registration, or it's only visible when logged in
+                                    />
                                 </div>
                                 <p>{description}</p>
                             </section>

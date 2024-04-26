@@ -3,7 +3,7 @@
     position: relative;
 }
 
-.textbox {
+.searchbar__textbox {
     border: 3px solid var(--accent-color-yellow);
     border-radius: 999px;
     height: 2rem;
@@ -13,13 +13,13 @@
     width: 100%;
 }
 
-.textbox:focus {
+.searchbar__textbox:focus {
     /* We'll change the border color of the textbox as long as it is being focused */
     border: 3px solid var(--accent-color-red);
     transition: 0.2s ease-in-out;
 }
 
-.suggestions {
+.searchbar__suggestions {
     /* Styles of the suggestions container */
     overflow-y: scroll;
 
@@ -31,22 +31,21 @@
     z-index: 10;
 }
 
-.suggestions.hidden {
+.searchbar__suggestions.hidden {
     /* Will hide the suggestions */
     visibility: hidden; /*We can also use `opacity: 0`*/
 }
 
-.suggestion {
+.searchbar__suggestion {
     /* Styling of a single suggestion */
     cursor: pointer;
-    box-sizing: border-box;
     padding: 1px 10px;
     height: 2rem;
     display: flex;
     align-items: center;
 }
 
-.suggestion:hover {
+.searchbar__suggestion:hover {
     /* Changing background color on hover */
     background-color: #f3f3f3;
 }

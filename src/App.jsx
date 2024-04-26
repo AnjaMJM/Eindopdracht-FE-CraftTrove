@@ -22,9 +22,9 @@ function App() {
                         <Route path="/" element={<Home/>}/>
                         <Route path="/categories/:type" element={<Overview/>}/>
                         <Route path="/product/:id" element={<Product />}/>
-                        <Route path="/newProduct" element={<NewProduct/>}/>
+                        <Route path="/newproduct" element={<NewProduct/>}/>
                         <Route path="/shop/:id" element={<Shop/>}/>
-                        <Route path="/newshop/:id" element={<NewShop/>}/>
+                        <Route path="/newshop" element={<NewShop/>}/>
                         <Route path="/personalTrove" element={<PersonalTrove/>}/>
                         <Route path="/Cart" element={<Cart/>}/>
                         <Route patch="*" element={<NotFound/>}/>
