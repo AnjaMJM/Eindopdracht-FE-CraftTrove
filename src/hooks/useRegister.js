@@ -41,7 +41,8 @@ export function useRegister() {
             );
             console.log("Gebruiker is geregistreerd", response)
             if (response.status === 200) {
-                login(response.data.accessToken)}
+                login(response.data.jwt, username)}
+
         } catch (err) {
             console.error("Registration failed", err);
             // Handle login failure, e.g., show error message to the user

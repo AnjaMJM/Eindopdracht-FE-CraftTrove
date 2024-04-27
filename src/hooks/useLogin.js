@@ -1,6 +1,7 @@
 import {useContext, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../context/AuthContext/AuthContext.jsx";
+// import {ModalContext} from "../context/ModalContext/ModalContext.jsx";
 
 export function useLogin() {
     const [loginData, setLoginData] = useState({
@@ -8,6 +9,7 @@ export function useLogin() {
         password: ""
     });
 const {login} = useContext(AuthContext)
+    // const {handleCloseAuthFormModal} = useContext(ModalContext)
 
     const handleLoginChange = (e) => {
         const changedFieldName = e.target.name;
@@ -34,8 +36,8 @@ const {login} = useContext(AuthContext)
                 }
             );
             if (response.status === 200) {
-                login(response.data.jwt);
-                console.log("login succesvol", response)
+                login(response.data.jwt, username);
+                console.log("login succesvol", response.data)
             }
         } catch (err) {
             console.error("Login failed", err);

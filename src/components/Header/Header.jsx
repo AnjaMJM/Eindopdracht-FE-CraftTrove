@@ -21,7 +21,7 @@ function Header() {
 
     const [isAuthFormModalOpen, setIsAuthFormModalOpen] = useState(false);
     const [register, setRegister] = useState(true);
-
+    console.log("auth in header", auth)
     // two different options to open the AuthFormModal, one to register and one to login.
     const handleOpenModalRegister = () => {
         setIsAuthFormModalOpen(true);
@@ -36,10 +36,14 @@ function Header() {
         setIsAuthFormModalOpen(false);
     }
 
-    // const handleFormSubmit = (data) => {
-    //     setAuthFormData(data);
-    //     handleCloseAuthFormModal();
-    // }
+    const handleFormSubmit = () => {
+        if (register) {
+            handleRegister;
+        } else {
+            handleLogin;
+        }
+
+    }
 
     const handleTabChange = (event) => {
         if (event.target.id === 'tab-register') {
@@ -61,9 +65,9 @@ function Header() {
                 />
 
                 <div className="header__nav-list">
-                    {auth === true ? ( //When is user is logged in (authorized), a greeting and acces to profile and treasuretrove will be given
+                    {auth.isAuth === true ? ( //When is user is logged in (authorized), a greeting and acces to profile and treasuretrove will be given
                             <div className="header__login">
-                                <p>Welcome person</p>
+                                <p>Welcome {auth.user.username}</p>
                                 <Link to="/"> <img src={settings} alt="personal settings" className="header__icon"/></Link>
                                 <Link to="/personalTrove"> <img src={treasureChest} alt="treasure chest"
                                                                 className="header__icon"/></Link>
@@ -89,7 +93,7 @@ function Header() {
                 onClose={handleCloseAuthFormModal}
                 tabChange={handleTabChange}
                 handleChange={register ? handleRegisterChange : handleLoginChange}
-                usernameValue={register ? registerData.username : loginData.email}
+                usernameValue={register ? registerData.username : loginData.username}
                 emailValue={register ? registerData.email : ""}
                 passwordValue={register ? registerData.password : loginData.password}
                 // isButtonSelected

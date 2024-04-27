@@ -4,14 +4,13 @@ import Button from "../Button/Button.jsx";
 import AuthFormModal from "../AuthForm/AuthFormModal.jsx";
 
 const Modal = ({isOpen, onClose, children}) => {
-    const [isModalOpen, setModalOpen] = useState(isOpen);
+    // const [isModalOpen, setModalOpen] = useState(false);
     const modalRef = useRef(null);
 
     const handleCloseModal = () => {
         if (onClose) {
             onClose();
         }
-        setModalOpen(false);
     };
 
     // to trigger event on key (in this case 'esc'-key)
@@ -22,20 +21,16 @@ const Modal = ({isOpen, onClose, children}) => {
     };
 
     useEffect(() => {
-        setModalOpen(isOpen);
-    }, [isOpen]);
-
-    useEffect(() => {
         const modalElement = modalRef.current;
 
         if (modalElement) {
-            if (isModalOpen) {
+            if (isOpen) {
                 modalElement.showModal();
             } else {
                 modalElement.close();
             }
         }
-    }, [isModalOpen]);
+    }, [isOpen]);
 
     return (
         <dialog ref={modalRef} onKeyDown={handleKeyDown} className="modal">

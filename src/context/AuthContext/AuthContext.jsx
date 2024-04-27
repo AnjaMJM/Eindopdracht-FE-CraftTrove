@@ -22,14 +22,14 @@ function AuthContextProvider({children}) {
         }
     }, []);
 
-    async function login(jwtToken) {
-        const decodedToken = jwtDecode(jwtToken)
+    async function login(jwtToken, username) {
+        const decodedToken = jwtDecode(jwtToken).toString()
         localStorage.setItem("jwtToken", jwtToken);
 
         try {
-            const response = await axios.get(`http://localhost:3000/600/users/${decodedToken.sub}`, {
+            const response = await axios.get(`https://api.datavortex.nl/crafttrove/users/${username}`, {
                 headers: {
-                    "Content-Type": "application/json",
+                    accept: "*/*",
                     Authorization: `Bearer ${jwtToken}`,
                 }
             });
@@ -43,7 +43,7 @@ function AuthContextProvider({children}) {
                 },
                 status: "done"
             });
-            console.log("De gebruiker is ingelogd 🔓");
+            console.log("De gebruiker is ingelogd 🔓", );
         } catch (err) {
             console.error(err)
         }
