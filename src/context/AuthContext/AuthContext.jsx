@@ -63,6 +63,7 @@ function AuthContextProvider({children}) {
     const data = {
         auth,
         login,
+        logout,
     }
 
     console.log("auth context", auth)

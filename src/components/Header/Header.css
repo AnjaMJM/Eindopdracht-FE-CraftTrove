@@ -9,8 +9,6 @@
 }
 
 .header__nav-list {
-    list-style: none;
-
     display: flex;
     gap: 20px;
 }
@@ -18,14 +16,36 @@
 .header__login {
     display: flex;
     gap: 20px;
+    position: relative;
 }
 
 .header__logout {
     display: flex;
     gap: 20px;
+    position: relative;
 }
 
 .header__icon {
     width:40px;
 }
+.header__drop-down {
+    display: inline-block;
+    position: relative;
+}
+
+.header__drop-down-menu {
+    display: none;
+    position: absolute;
+    overflow: auto;
+}
+
+.header__drop-down-menu {
+    text-decoration: none;
+}
+
+.header__drop-down:hover .header__drop-down-menu {
+    display: block;
+}
+
+
 
