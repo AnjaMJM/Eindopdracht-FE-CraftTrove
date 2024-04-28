@@ -9,6 +9,7 @@ function AuthFormModal({
                            usernameValue,
                            emailValue,
                            passwordValue,
+                            isButtonSelected,
                            register,
                            isOpen,
                            onClose,
@@ -30,7 +31,7 @@ function AuthFormModal({
             </div>
 
             <form onSubmit={handleSubmit} className="auth-form">
-                {register && (
+
                     <div className="auth-form__input">
                         <input type="text"
                                name="username" id="username"
@@ -40,8 +41,8 @@ function AuthFormModal({
                                required/>
                         <div className="auth-form__underline"></div>
                     </div>
-                )}
-                <div className="auth-form__input">
+
+                {register && (<div className="auth-form__input">
                     <input type="email"
                            name="email"
                            id="email"
@@ -50,7 +51,8 @@ function AuthFormModal({
                            placeholder="Email address"
                            required/>
                     <div className="auth-form__underline"></div>
-                </div>
+                </div>)}
+
                 <div className="auth-form__input">
                     <input type="password"
                            name="password"
@@ -58,15 +60,18 @@ function AuthFormModal({
                            value={passwordValue}
                            onChange={handleChange}
                            placeholder="Password"
+                            minLength="8"
                            required/>
                     <div className="auth-form__underline"></div>
                 </div>
 
                 {register && (
                     <div className="auth-form__radio">
-                        <input type="radio" id="user-creative" name="user-type"/>
+                        <input type="radio" id="user-creative" name="user-type" value="user-creative"
+                        />
                         <label htmlFor="user-creative">Creative</label>
-                        <input type="radio" id="user-designer" name="user-type"/>
+                        <input type="radio" id="user-designer" name="user-type" value="user-designer"
+                        />
                         <label htmlFor="user-designer">Designer</label>
                     </div>
                 )}

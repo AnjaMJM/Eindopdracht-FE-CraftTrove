@@ -1,25 +1,28 @@
 import "./Header.css"
 import treasureChest from "../../assets/treasure.png"
-import {Link} from "react-router-dom";
 import settings from "../../assets/settings.png"
 import shoppingBasket from "../../assets/wicker-basket.png"
 import Searchbar from "../Searchbar/Searchbar.jsx";
-import {useContext, useState} from "react";
-import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 import Button from "../Button/Button.jsx";
-import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
 import AuthFormModal from "../AuthForm/AuthFormModal.jsx";
+import {useContext, useState} from "react";
+import {Link, Navigate} from "react-router-dom";
+import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
+import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
+import {useLogin} from "../../hooks/useLogin.js";
+import {useRegister} from "../../hooks/useRegister.js";
 
 
 function Header() {
     const {setResult, fetchData} = useContext(SearchContext)
-    const {isAuth} = useContext(AuthContext)
+    const {auth, logout} = useContext(AuthContext)
+    const {handleLoginChange, handleLogin, loginData} = useLogin()
+    const {handleRegisterChange, handleRegister, registerData} = useRegister()
 
     const [isAuthFormModalOpen, setIsAuthFormModalOpen] = useState(false);
     const [register, setRegister] = useState(true);
-    const [authFormData, setAuthFormData] = useState(null)
-
-    // to different options to open the AuthFormModal, one to register and one to login.
+    console.log("auth in header", auth)
+    // two different options to open the AuthFormModal, one to register and one to login.
     const handleOpenModalRegister = () => {
         setIsAuthFormModalOpen(true);
         setRegister(true)
@@ -33,10 +36,14 @@ function Header() {
         setIsAuthFormModalOpen(false);
     }
 
-    const handleFormSubmit = (data) => {
-        setAuthFormData(data);
-        handleCloseAuthFormModal();
-    }
+    // const handleFormSubmit = () => {
+    //     if (register) {
+    //         handleRegister;
+    //     } else {
+    //         handleLogin;
+    //     }
+    //
+    // }
 
     const handleTabChange = (event) => {
         if (event.target.id === 'tab-register') {
@@ -58,10 +65,15 @@ function Header() {
                 />
 
                 <div className="header__nav-list">
-                    {isAuth === true ? ( //When is user is logged in (authorized), a greeting and acces to profile and treasuretrove will be given
+                    {auth.isAuth === true ? ( //When is user is logged in (authorized), a greeting and acces to profile and treasuretrove will be given
                             <div className="header__login">
-                                <p>Welcome person</p>
-                                <Link to="/"> <img src={settings} alt="personal settings" className="header__icon"/></Link>
+                                <p>Welcome {auth.user.username}</p>
+                                <div className="header__drop-down">
+                                <img src={settings} alt="personal settings" className="header__icon"/>
+                                <div className="header__drop-down-menu">
+                                    <Link to="/newshop">Edit profile</Link>
+                                    <div onClick={logout}>Logout</div>
+                                </div></div>
                                 <Link to="/personalTrove"> <img src={treasureChest} alt="treasure chest"
                                                                 className="header__icon"/></Link>
                             </div>)
@@ -82,9 +94,15 @@ function Header() {
             <AuthFormModal
                 register={register}
                 isOpen={isAuthFormModalOpen}
-                onSubmit={handleFormSubmit}
+                handleSubmit={register ? handleRegister: handleLogin}
                 onClose={handleCloseAuthFormModal}
                 tabChange={handleTabChange}
+                handleChange={register ? handleRegisterChange : handleLoginChange}
+                usernameValue={register ? registerData.username : loginData.username}
+                emailValue={register ? registerData.email : ""}
+                passwordValue={register ? registerData.password : loginData.password}
+                // isButtonSelected
+
             />
         </>
 

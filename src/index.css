@@ -15,25 +15,7 @@
     --accent-color-lightblue: #0A9396;
     --accent-color-darkblue: #005F73;
     --text-color-black: #002838;
-    /*--font-family-lexend: 'Lexend', sans-serif;*/
 }
-
-/*h1,*/
-/*h2,*/
-/*h3,*/
-/*h4,*/
-/*h5,*/
-/*h6,*/
-/*p,*/
-/*button,*/
-/*label,*/
-/*input,*/
-/*textarea {*/
-/*    font-family: "Lexend", sans-serif;*/
-/*    font-optical-sizing: auto;*/
-/*    font-style: normal;*/
-/*    */
-/*}*/
 
 body {
     color: var(--text-color-black);

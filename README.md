@@ -43,11 +43,8 @@ GIT:
     [X] searchbar (get data)
     [X] Pages (aanmaken en basic lay-out)
     [] Registratie, authethicatie
-    [] Create product en shop
-    [] Error handling -- incl. searchbar reusability
-    [] Authentication
-    [] Navbar functioneel maken
-    [] Error handling -- search results clearing after result is set on page
+    [X] Formulieren
+    [] Error handling
     [X] Navbar functioneel maken
     [] Winkelmandje
     
@@ -75,3 +72,5 @@ icons via flaticon.com, attributed to:
    - add-post by HideMaru
 
 Searchbar is created with help of this tutorial: https://upmostly.com/tutorials/how-to-create-a-search-bar-in-react
+
+login: CraftTrove, info@crafttrove.nl, wachtwoord
