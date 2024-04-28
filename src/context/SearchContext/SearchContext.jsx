@@ -11,14 +11,15 @@ function SearchContextProvider({children}) {
     const [result, setResult] = useState(null);
     const [value, setValue] = useState(''); // Value of the search bar
     const [suggestions, setSuggestions] = useState([]);
-    const [selectedResult, setSelectedResult] = useState(null);
 
     const navigate = useNavigate()
+
+    console.log("suggestions", suggestions);
 
     const fetchData = async (value) => {
         try {
             const response = await axios.get(
-                `https://dummyjson.com/products/search?q=${value}&limit=10`
+                `https://dummyjson.com/products/search?q=${value}`
             );
             console.log("value in fetchData", value);
             setSuggestions(response.data.products); // Set suggestions based on API response
@@ -29,23 +30,11 @@ function SearchContextProvider({children}) {
             console.error(err);
         }
     };
-    // console.log("result ID", resultId)
     console.log("result", result)
-    // console.log("suggestions context", suggestions)
-
-    // useEffect(() => {
-    //     console.log("value", value);
-    // }, []);
-
 
     useEffect(() => {
         void fetchData();
     }, [value]);
-
-    const handleSelectedResult = (suggestions) => {
-        setSelectedResult(suggestions);
-        navigate("/overview")
-    }
 
     useEffect(() => {
         let id;
@@ -64,7 +53,6 @@ function SearchContextProvider({children}) {
         suggestions, // Include suggestions in the context value
         setResult,
         fetchData,
-        handleSelectedResult,
     };
 
     return (

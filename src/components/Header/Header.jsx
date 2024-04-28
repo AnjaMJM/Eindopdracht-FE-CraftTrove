@@ -11,6 +11,8 @@ import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
 import {useLogin} from "../../hooks/useLogin.js";
 import {useRegister} from "../../hooks/useRegister.js";
+import CartWidget from "../CartWidget/CartWidget.jsx";
+import CartModal from "../CartModal/CartModal.jsx";
 
 
 function Header() {
@@ -20,24 +22,33 @@ function Header() {
     const {handleRegisterChange, handleRegister, registerData} = useRegister()
 
     const [isAuthFormModalOpen, setIsAuthFormModalOpen] = useState(false);
-    const [register, setRegister] = useState(true);
+    const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+    const [registerForm, toggleRegisterForm] = useState(true);
     console.log("auth in header", auth)
-    // two different options to open the AuthFormModal, one to register and one to login.
-    const handleOpenModalRegister = () => {
+    // two different options to open the AuthFormModal, one to registerForm and one to login.
+    const handleOpenAuthFormModalRegister = () => {
         setIsAuthFormModalOpen(true);
-        setRegister(true)
+        toggleRegisterForm(true)
     }
-    const handleOpenModalLogin = () => {
+    const handleOpenAuthFormModalLogin = () => {
         setIsAuthFormModalOpen(true);
-        setRegister(false)
+        toggleRegisterForm(false)
     }
 
     const handleCloseAuthFormModal = () => {
         setIsAuthFormModalOpen(false);
     }
 
+    const handleOpenCartModal = () => {
+        setIsCartModalOpen(true)
+    }
+
+    const handleCloseCartModal = () => {
+        setIsCartModalOpen(false)
+    }
+
     // const handleFormSubmit = () => {
-    //     if (register) {
+    //     if (registerForm) {
     //         handleRegister;
     //     } else {
     //         handleLogin;
@@ -46,10 +57,10 @@ function Header() {
     // }
 
     const handleTabChange = (event) => {
-        if (event.target.id === 'tab-register') {
-            setRegister(true);
+        if (event.target.id === 'tab-registerForm') {
+            toggleRegisterForm(true);
         } else {
-            setRegister(false);
+            toggleRegisterForm(false);
         }
     };
 
@@ -77,33 +88,37 @@ function Header() {
                                 <Link to="/personalTrove"> <img src={treasureChest} alt="treasure chest"
                                                                 className="header__icon"/></Link>
                             </div>)
-                        : ( //When a user is not logged in, they will be shown the option to login or register
+                        : ( //When a user is not logged in, they will be shown the option to login or registerForm
                             <div className="header__logout">
                                 <Button type="button"
                                         btnText="Register"
-                                        handleClick={handleOpenModalRegister}/>
+                                        handleClick={handleOpenAuthFormModalRegister}/>
                                 <Button type="button"
                                         btnText="Login"
-                                        handleClick={handleOpenModalLogin}/>
+                                        handleClick={handleOpenAuthFormModalLogin}/>
                             </div>
                         )}
                     {/*The shopping cart remains visible*/}
-                    <Link to="/cart"> <img src={shoppingBasket} alt="shopping basket" className="header__icon"/></Link>
+                    <CartWidget className="header__icon"
+                        handleClick={handleOpenCartModal}/>
                 </div>
             </div>
             <AuthFormModal
-                register={register}
+                register={registerForm}
                 isOpen={isAuthFormModalOpen}
-                handleSubmit={register ? handleRegister: handleLogin}
+                handleSubmit={registerForm ? handleRegister: handleLogin}
                 onClose={handleCloseAuthFormModal}
                 tabChange={handleTabChange}
-                handleChange={register ? handleRegisterChange : handleLoginChange}
-                usernameValue={register ? registerData.username : loginData.username}
-                emailValue={register ? registerData.email : ""}
-                passwordValue={register ? registerData.password : loginData.password}
+                handleChange={registerForm ? handleRegisterChange : handleLoginChange}
+                usernameValue={registerForm ? registerData.username : loginData.username}
+                emailValue={registerForm ? registerData.email : ""}
+                passwordValue={registerForm ? registerData.password : loginData.password}
                 // isButtonSelected
 
             />
+            <CartModal
+                isOpen={isCartModalOpen}
+                onClose={handleCloseCartModal}/>
         </>
 
     );

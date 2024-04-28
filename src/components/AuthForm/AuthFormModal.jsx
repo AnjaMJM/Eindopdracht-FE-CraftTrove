@@ -9,7 +9,6 @@ function AuthFormModal({
                            usernameValue,
                            emailValue,
                            passwordValue,
-                            isButtonSelected,
                            register,
                            isOpen,
                            onClose,
