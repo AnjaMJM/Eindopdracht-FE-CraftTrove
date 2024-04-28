@@ -5,7 +5,6 @@ import {checkTokenValidity} from "../../helpers/checkTokenValidity.js";
 
 export const AuthContext = createContext(null);
 
-
 function AuthContextProvider({children}) {
     const [auth, setAuth] = useState({
         isAuth: false,
@@ -14,16 +13,16 @@ function AuthContextProvider({children}) {
     });
 
     useEffect(() => {
-        const storedToken = localStorage.getItem("token");
+        const storedToken = localStorage.getItem("jwtToken");
+        const username = localStorage.getItem("username");
         if (storedToken && checkTokenValidity(storedToken)) {
-            void login(storedToken);
+            void login(storedToken, username);
         } else {
             void logout()
         }
     }, []);
 
     async function login(jwtToken, username) {
-        const decodedToken = jwtDecode(jwtToken).toString()
         localStorage.setItem("jwtToken", jwtToken);
 
         try {
@@ -41,8 +40,9 @@ function AuthContextProvider({children}) {
                     email: response.data.email,
                     id: response.data.id,
                 },
-                status: "done"
+                status: "done",
             });
+            localStorage.setItem("username", response.data.username);
             console.log("De gebruiker is ingelogd 🔓", );
         } catch (err) {
             console.error(err)
@@ -57,6 +57,7 @@ function AuthContextProvider({children}) {
             status: "done",
         });
         localStorage.removeItem("token");
+        localStorage.removeItem("username");
         console.log("De gebruiker is uitgelogd 🔒");
     };
 
