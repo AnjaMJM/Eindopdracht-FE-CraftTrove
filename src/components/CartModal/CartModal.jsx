@@ -3,9 +3,12 @@ import {useContext} from 'react';
 import Modal from "../Modal/Modal.jsx";
 import {CartContext} from "../../context/CartContext/CartContext.jsx";
 import trashcan from "../../assets/trashcan.png"
+import Button from "../Button/Button.jsx";
+import {useNavigate} from "react-router-dom";
 
-function CartModal({isOpen, onClose}) {
-    const {cartItems, onRemove} = useContext(CartContext);
+function CartModal({isOpen, onClose, handlePurchase}) {
+    const {cartItems, onRemove, totalPrice} = useContext(CartContext);
+    const navigate = useNavigate();
 
     console.log("CartItems in cartModal", cartItems);
 
@@ -23,12 +26,17 @@ function CartModal({isOpen, onClose}) {
                             <h4 className="cart-modal__product-title">{product.title}</h4>
                         </div>
                         <p className="cart-modal__price">€{product.price}</p>
-                        <img src={trashcan} alt="remove item from basket" onClick={() => onRemove(product)} className="cart-modal__remove-item"/>
+                        <img src={trashcan} alt="remove item from basket" onClick={() => onRemove(product)}
+                             className="cart-modal__remove-item"/>
                     </article>
                 ))}
             </div>
             {cartItems.length !== 0 && (
-                <div>added price</div>
+                <div className="cart-modal__purchase-container">
+                    <div className="cart-modal__total-price">Total: €{totalPrice(cartItems)},-</div>
+                    <Button btnText="Purchase patterns" handleClick={handlePurchase}
+                    />
+                </div>
             )}
         </Modal>
     );

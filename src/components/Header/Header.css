@@ -8,6 +8,10 @@
     justify-content: space-around;
 }
 
+.header__title {
+    text-decoration: none;
+}
+
 .header__nav-list {
     display: flex;
     gap: 20px;

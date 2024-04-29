@@ -18,6 +18,7 @@
     padding: 10px 0;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 6px;
     align-items: center;
 }
@@ -53,4 +54,16 @@
 .cart-modal__remove-item {
     width: 30px;
     cursor: pointer;
+}
+
+.cart-modal__purchase-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cart-modal__total-price {
+    padding: 0 40px;
 }

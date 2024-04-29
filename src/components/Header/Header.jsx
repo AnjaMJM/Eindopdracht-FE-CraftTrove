@@ -6,20 +6,24 @@ import Searchbar from "../Searchbar/Searchbar.jsx";
 import Button from "../Button/Button.jsx";
 import AuthFormModal from "../AuthForm/AuthFormModal.jsx";
 import {useContext, useState} from "react";
-import {Link, Navigate} from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
+import {CartContext} from "../../context/CartContext/CartContext.jsx";
 import {useLogin} from "../../hooks/useLogin.js";
 import {useRegister} from "../../hooks/useRegister.js";
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import CartModal from "../CartModal/CartModal.jsx";
 
 
+
 function Header() {
     const {setResult, fetchData} = useContext(SearchContext)
     const {auth, logout} = useContext(AuthContext)
+    const {setCartItems} = useContext(CartContext)
     const {handleLoginChange, handleLogin, loginData} = useLogin()
     const {handleRegisterChange, handleRegister, registerData} = useRegister()
+    const navigate = useNavigate()
 
     const [isAuthFormModalOpen, setIsAuthFormModalOpen] = useState(false);
     const [isCartModalOpen, setIsCartModalOpen] = useState(false);
@@ -48,14 +52,22 @@ function Header() {
         setIsCartModalOpen(false)
     }
 
-    // const handleFormSubmit = () => {
-    //     if (registerForm) {
-    //         handleRegister;
-    //     } else {
-    //         handleLogin;
-    //     }
-    //
-    // }
+    const handleFormSubmit = () => {
+        if (registerForm === true) {
+            handleRegister;
+    handleCloseAuthFormModal()
+        } else {
+            handleLogin;
+    handleCloseAuthFormModal()
+        }
+
+    }
+
+    function handlePurchase() {
+        navigate("/cart");
+        handleCloseCartModal();
+        setCartItems([]);
+    }
 
     const handleTabChange = (event) => {
         if (event.target.id === "tab-register") {
@@ -68,7 +80,7 @@ function Header() {
     return (
         <>
             <div className="header">
-                <Link to="/"><h2>CraftTrove Logo</h2></Link>
+                <Link to="/" className="header__title">CraftTrove</Link>
 
                 <Searchbar
                     fetchData={fetchData}
@@ -107,7 +119,7 @@ function Header() {
             <AuthFormModal
                 register={registerForm}
                 isOpen={isAuthFormModalOpen}
-                handleSubmit={registerForm ? handleRegister: handleLogin}
+                handleSubmit={handleFormSubmit}
                 onClose={handleCloseAuthFormModal}
                 tabChange={handleTabChange}
                 handleChange={registerForm ? handleRegisterChange : handleLoginChange}
@@ -119,7 +131,8 @@ function Header() {
             />
             <CartModal
                 isOpen={isCartModalOpen}
-                onClose={handleCloseCartModal}/>
+                onClose={handleCloseCartModal}
+                handlePurchase={handlePurchase}/>
         </>
 
     );

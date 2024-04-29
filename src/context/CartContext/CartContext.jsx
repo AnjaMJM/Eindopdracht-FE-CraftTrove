@@ -14,6 +14,7 @@ function CartContextProvider({children}) {
             console.log("product in cartContext", product)
         }
     }
+
     console.log("cartItems", cartItems)
 
     function onRemove(product) {
@@ -23,30 +24,31 @@ function CartContextProvider({children}) {
         })
         console.log("onRemove, exist", exist)
         if (exist) {
-            if (exist) {
-                setCartItems(cartItems.filter((item) => item.id !== product.id));
-            } else {
-                setCartItems(
-                    cartItems.map((item) =>
-                        item.id === product.id ? {...exist, qty: exist.qty - 1} : item
-                    )
-                );
-            }
+            setCartItems(cartItems.filter((item) => item.id !== product.id));
         }
     }
 
-
-    const data = {
-        cartItems,
-        onAdd,
-        onRemove,
+    function totalPrice(cartItems) {
+        return cartItems.reduce((total, currentItem) => {
+            return total + currentItem.price;
+        }, 0);
     }
 
-    return (
-        <CartContext.Provider value={data}>
-            {children}
-        </CartContext.Provider>
-    );
+    console.log("total price", totalPrice(cartItems));
+
+const data = {
+    setCartItems,
+    cartItems,
+    onAdd,
+    onRemove,
+    totalPrice
+}
+
+return (
+    <CartContext.Provider value={data}>
+        {children}
+    </CartContext.Provider>
+);
 }
 
 export default CartContextProvider;
