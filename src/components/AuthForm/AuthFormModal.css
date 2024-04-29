@@ -80,7 +80,6 @@
 .auth-form__input input:focus ~ .auth-form__underline:before,
 .auth-form__input input:valid ~ .auth-form__underline:before {
     transform: scale(1);
-
 }
 
 /*doesn't work yet...*/

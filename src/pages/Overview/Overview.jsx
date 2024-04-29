@@ -65,7 +65,7 @@ function Overview() {
             <Navbar />
             <h2 className="overview__title">These are the results for {type}</h2>
             <div className="overview__content">
-                {products && products.map(({id, thumbnail, title, brand, description, price}) => {
+                {products && products.map(({id, thumbnail, title, brand, price}) => {
                     return <ProductCard
                             key={id}
                             thumbnail={thumbnail}

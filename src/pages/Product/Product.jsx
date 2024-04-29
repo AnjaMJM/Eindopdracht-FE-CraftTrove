@@ -11,10 +11,12 @@ import axios from "axios";
 import {useParams} from "react-router-dom";
 import Button from "../../components/Button/Button.jsx";
 import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
+import {CartContext} from "../../context/CartContext/CartContext.jsx";
 
 function Product() {
     const {id} = useParams();
     const {auth} = useContext(AuthContext)
+    const {onAdd} = useContext(CartContext)
     const [product, setProduct] = useState([]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -64,7 +66,7 @@ function Product() {
                                     <Button
                                         type="button"
                                         btnText="Add to basket"
-                                        // handleClick={}
+                                        handleClick={() => onAdd(product)}
                                     />
                                     {auth.isAuth && <Button
                                         type="button"

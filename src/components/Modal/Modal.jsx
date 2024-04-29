@@ -3,7 +3,7 @@ import './Modal.css';
 import Button from "../Button/Button.jsx";
 import AuthFormModal from "../AuthForm/AuthFormModal.jsx";
 
-const Modal = ({isOpen, onClose, children}) => {
+const Modal = ({isOpen, onClose, btnPosition, children}) => {
     // const [isModalOpen, setModalOpen] = useState(false);
     const modalRef = useRef(null);
 
@@ -35,7 +35,7 @@ const Modal = ({isOpen, onClose, children}) => {
     return (
         <dialog ref={modalRef} onKeyDown={handleKeyDown} className="modal">
 
-                <div className="modal__close-btn">
+                <div className={btnPosition === "low" ? "modal__close-btn modal__btn-position-low" : "modal__close-btn"}>
                     <Button type="button"
                             handleClick={handleCloseModal}
                             btnText="Close"

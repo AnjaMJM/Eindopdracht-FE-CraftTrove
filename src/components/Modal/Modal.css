@@ -4,7 +4,7 @@
 
 .modal {
     width: 400px;
-    padding: 60px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
     border: 3px solid var(--accent-color-darkblue);
     border-radius: 20px;
     box-shadow: hsl(0 0% 0% / 10%) 0 0 0.5rem 0.25rem;
@@ -12,14 +12,16 @@
     /*to position the modal in the center of the screen*/
     position: relative;
     margin: auto;
-    /*transform: translate(-50%, -50%);*/
-
     z-index: 1;
+}
 
+.modal__btn-position-low {
+    padding: 60px 20px 20px 20px;
 }
 
 .modal__close-btn {
     display: flex;
     justify-content: flex-end;
     align-content: flex-end;
+    z-index: 10;
 }

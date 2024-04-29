@@ -2,7 +2,6 @@ import "./AuthFormModal.css"
 import Button from "../Button/Button.jsx";
 import Modal from "../Modal/Modal.jsx";
 
-
 function AuthFormModal({
                            handleSubmit,
                            handleChange,
@@ -15,9 +14,8 @@ function AuthFormModal({
                            tabChange
                        }) {
 
-
     return (
-        <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose}>
+        <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose} btnPosition="low">
             <div className="modal__tab-wrap">
                 <div className="modal__tab">
                     <input type="radio" id="tab-register" name="modal-tabs" onChange={tabChange} checked={register}/>
@@ -30,7 +28,6 @@ function AuthFormModal({
             </div>
 
             <form onSubmit={handleSubmit} className="auth-form">
-
                     <div className="auth-form__input">
                         <input type="text"
                                name="username" id="username"
@@ -66,10 +63,10 @@ function AuthFormModal({
 
                 {register && (
                     <div className="auth-form__radio">
-                        <input type="radio" id="user-creative" name="user-type" value="user-creative"
+                        <input type="radio" id="user-creative" name="user-type" value="creative"
                         />
                         <label htmlFor="user-creative">Creative</label>
-                        <input type="radio" id="user-designer" name="user-type" value="user-designer"
+                        <input type="radio" id="user-designer" name="user-type" value="designer"
                         />
                         <label htmlFor="user-designer">Designer</label>
                     </div>

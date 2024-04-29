@@ -25,7 +25,8 @@ function Header() {
     const [isCartModalOpen, setIsCartModalOpen] = useState(false);
     const [registerForm, toggleRegisterForm] = useState(true);
     console.log("auth in header", auth)
-    // two different options to open the AuthFormModal, one to registerForm and one to login.
+
+    // two different options to open the AuthFormModal, one to register and one to login.
     const handleOpenAuthFormModalRegister = () => {
         setIsAuthFormModalOpen(true);
         toggleRegisterForm(true)
@@ -57,7 +58,7 @@ function Header() {
     // }
 
     const handleTabChange = (event) => {
-        if (event.target.id === 'tab-registerForm') {
+        if (event.target.id === "tab-register") {
             toggleRegisterForm(true);
         } else {
             toggleRegisterForm(false);
