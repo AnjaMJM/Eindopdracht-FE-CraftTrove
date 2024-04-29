@@ -1,6 +1,5 @@
 import {createContext, useEffect, useState} from "react";
 import axios from "axios";
-import {jwtDecode} from "jwt-decode";
 import {checkTokenValidity} from "../../helpers/checkTokenValidity.js";
 
 export const AuthContext = createContext(null);

@@ -9,16 +9,15 @@ import {
 } from "../../helpers/randomProductDescriptionHelper.js";
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 import Button from "../../components/Button/Button.jsx";
+import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
+import {CartContext} from "../../context/CartContext/CartContext.jsx";
 
 function Product() {
-    // After a product is selected in the searchbar, an ID will be extracted and stored in productId
-    const {result, setResult} = useContext(SearchContext);
     const {id} = useParams();
-    console.log("result in product.jsx", result)
+    const {auth} = useContext(AuthContext)
+    const {onAdd} = useContext(CartContext)
     const [product, setProduct] = useState([]);
-    console.log("id in product", id)
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchProduct = async () => {
@@ -35,8 +34,11 @@ function Product() {
     };
 
     useEffect(() => {
-        console.log("result changed", result)
         void fetchProduct();
+        getRandomTools();
+        getRandomKeywords();
+        getRandomDifficulty();
+        getRandomMaterial()
     }, [id]);
 
     const {title, brand, description, price, thumbnail} = product;
@@ -64,12 +66,13 @@ function Product() {
                                     <Button
                                         type="button"
                                         btnText="Add to basket"
+                                        handleClick={() => onAdd(product)}
                                     />
-                                    <Button
+                                    {auth.isAuth && <Button
                                         type="button"
                                         btnText="Add to wishlist"
-                                      // Or if not authorized, this button should prompt registration, or it's only visible when logged in
-                                    />
+                                      // If not authorized, this button should prompt registration, or it's only visible when logged in
+                                    />}
                                 </div>
                                 <p>{description}</p>
                             </section>

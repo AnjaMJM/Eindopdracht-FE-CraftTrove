@@ -1,0 +1,16 @@
+.cart-widget__container {
+    border:none;
+    background: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.cart-widget__counter {
+    z-index: 1;
+    font-size: 12px;
+    top: 40px;
+}
