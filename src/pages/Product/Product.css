@@ -38,10 +38,8 @@
     align-items: baseline;
 }
 
-
-
 .product__pattern-specification {
-    border: 1px solid var(--accent-color-red);
+    border: 2px solid var(--accent-color-red);
     border-radius: 20px;
     padding: 20px;
 
