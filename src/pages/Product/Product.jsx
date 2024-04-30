@@ -13,12 +13,14 @@ import Button from "../../components/Button/Button.jsx";
 import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
 import {CartContext} from "../../context/CartContext/CartContext.jsx";
 import {getRandomDesignerDescription} from "../../helpers/randomCreatorDescriptionHelper.js";
+import GallerySlider from "../../components/GallerySlider/GallerySlider.jsx";
 
 function Product() {
     const {id} = useParams();
     const {auth} = useContext(AuthContext)
     const {onAdd} = useContext(CartContext)
     const [product, setProduct] = useState([]);
+    const [images, setImages] = useState([]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const fetchProduct = async () => {
@@ -28,6 +30,7 @@ function Product() {
                 `https://dummyjson.com/products/${id}`
             );
             setProduct(response.data)
+            setImages(response.data.images)
             console.log("fetchProduct", response);
         } catch (err) {
             console.error(err);
@@ -42,7 +45,7 @@ function Product() {
         getRandomMaterial()
     }, [id]);
 
-    const {title, brand, description, price, thumbnail, images} = product;
+    const {title, brand, description, price, thumbnail} = product;
 
     return (
         <>
@@ -50,8 +53,8 @@ function Product() {
                     <div key={id} className="product__wrapper">
                         <div className="product__left-column">
                             <section className="product__photo-slider">
-                                <p>photo-slider</p>
-                                <img src={thumbnail} alt={title}/>
+                                <GallerySlider
+                                images={images}/>
                             </section>
                             <section title="product__about-designer">
                                 <h4>About {brand}</h4>
