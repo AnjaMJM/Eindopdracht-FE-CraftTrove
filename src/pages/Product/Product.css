@@ -1,9 +1,10 @@
 .product__wrapper {
-    margin: 20px;
+    margin: 60px;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 80px;
 }
 
 .product__left-column {
@@ -13,6 +14,10 @@
     gap: 48px;
 }
 
+.product__photo-slider img {
+    width: 400px;
+}
+
 .product__right-column {
     max-width: 466px;
     display: flex;
@@ -20,8 +25,27 @@
     gap: 48px;
 }
 
+.product__general-information {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product__general-information--price-and-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+
+
 .product__pattern-specification {
     border: 1px solid var(--accent-color-red);
     border-radius: 20px;
     padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

@@ -12,6 +12,7 @@ import {useParams} from "react-router-dom";
 import Button from "../../components/Button/Button.jsx";
 import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
 import {CartContext} from "../../context/CartContext/CartContext.jsx";
+import {getRandomDesignerDescription} from "../../helpers/randomCreatorDescriptionHelper.js";
 
 function Product() {
     const {id} = useParams();
@@ -41,7 +42,7 @@ function Product() {
         getRandomMaterial()
     }, [id]);
 
-    const {title, brand, description, price, thumbnail} = product;
+    const {title, brand, description, price, thumbnail, images} = product;
 
     return (
         <>
@@ -54,25 +55,26 @@ function Product() {
                             </section>
                             <section title="product__about-designer">
                                 <h4>About {brand}</h4>
-                                <p></p>
+                                <p>{getRandomDesignerDescription({brand})}</p>
                             </section>
                         </div>
                         <div className="product__right-column">
-                            <section>
+                            <section className="product__general-information">
                                 <h3>{title}</h3>
                                 <h4>By {brand}</h4>
-                                <div>
+                                <div className="product__general-information--price-and-buttons">
                                     <p>€{price}</p>
+                                    {auth.isAuth && <Button
+                                        type="button"
+                                        btnText="Add to wishlist"
+                                        // If not authorized, this button should prompt registration, or it's only visible when logged in
+                                    />}
                                     <Button
                                         type="button"
                                         btnText="Add to basket"
                                         handleClick={() => onAdd(product)}
                                     />
-                                    {auth.isAuth && <Button
-                                        type="button"
-                                        btnText="Add to wishlist"
-                                      // If not authorized, this button should prompt registration, or it's only visible when logged in
-                                    />}
+
                                 </div>
                                 <p>{description}</p>
                             </section>

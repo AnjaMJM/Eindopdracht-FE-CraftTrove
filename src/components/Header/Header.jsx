@@ -14,6 +14,7 @@ import {useLogin} from "../../hooks/useLogin.js";
 import {useRegister} from "../../hooks/useRegister.js";
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import CartModal from "../CartModal/CartModal.jsx";
+import Logo from "../Logo/Logo.jsx";
 
 
 
@@ -80,7 +81,7 @@ function Header() {
     return (
         <>
             <div className="header">
-                <Link to="/" className="header__title">CraftTrove</Link>
+                <Link to="/" className="header__title"><Logo /></Link>
 
                 <Searchbar
                     fetchData={fetchData}
@@ -89,8 +90,8 @@ function Header() {
                 />
 
                 <div className="header__nav-list">
-                    {auth.isAuth === true ? ( //When is user is logged in (authorized), a greeting and acces to profile and treasuretrove will be given
-                            <div className="header__login">
+                    {auth.isAuth === true ? (
+                            <div className="header__logged-in">
                                 <p>Welcome {auth.user.username}</p>
                                 <div className="header__drop-down">
                                 <img src={settings} alt="personal settings" className="header__icon"/>
@@ -102,7 +103,7 @@ function Header() {
                                                                 className="header__icon"/></Link>
                             </div>)
                         : ( //When a user is not logged in, they will be shown the option to login or registerForm
-                            <div className="header__logout">
+                            <div className="header__logged-out">
                                 <Button type="button"
                                         btnText="Register"
                                         handleClick={handleOpenAuthFormModalRegister}/>
@@ -111,8 +112,7 @@ function Header() {
                                         handleClick={handleOpenAuthFormModalLogin}/>
                             </div>
                         )}
-                    {/*The shopping cart remains visible*/}
-                    <CartWidget className="header__icon"
+                    <CartWidget className="header__icon header__cart-widget"
                         handleClick={handleOpenCartModal}/>
                 </div>
             </div>

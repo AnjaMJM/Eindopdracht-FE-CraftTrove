@@ -19,7 +19,7 @@ function SearchContextProvider({children}) {
     const fetchData = async (value) => {
         try {
             const response = await axios.get(
-                `https://dummyjson.com/products/search?q=${value}`
+                `https://dummyjson.com/products/search?q=${value}&limit=0&select=title,price,brand,thumbnail`
             );
             console.log("value in fetchData", value);
             setSuggestions(response.data.products); // Set suggestions based on API response

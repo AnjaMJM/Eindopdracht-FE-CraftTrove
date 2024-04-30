@@ -1,7 +1,6 @@
 import {useContext, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../context/AuthContext/AuthContext.jsx";
-// import {ModalContext} from "../context/ModalContext/ModalContext.jsx";
 
 export function useLogin() {
     const [loginData, setLoginData] = useState({
@@ -9,7 +8,6 @@ export function useLogin() {
         password: ""
     });
 const {login} = useContext(AuthContext)
-    // const {handleCloseAuthFormModal} = useContext(ModalContext)
 
     const handleLoginChange = (e) => {
         const changedFieldName = e.target.name;
@@ -41,7 +39,6 @@ const {login} = useContext(AuthContext)
             }
         } catch (err) {
             console.error("Login failed", err);
-            // Handle login failure, e.g., show error message to the user
         }
     };
 

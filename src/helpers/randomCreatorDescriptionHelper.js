@@ -1,0 +1,14 @@
+export function getRandomDesignerDescription({brand}) {
+    const descriptions = [
+        `Hello, fellow crafters! I’m Sarah, your guide to a world of serenity through stitches. ${brand} was born from a deep love for tranquility and mindfulness, that I would love to share with you. Whether it's a cozy blanket or a delicate lace project, my designs aim to bring a sense of calm and joy to your crafting journey. Join me as we stitch our way to inner peace, one project at a time.`,
+        `Hey there, adventurous makers! I’m Benjamin, the creative force behind ${brand}. My patterns are all about pushing boundaries, breaking rules, and embracing boldness in every stitch. From vibrant color palettes to daring design choices, my creations are for those who aren't afraid to stand out. Join me on a journey of fearless creativity, where each project is a celebration of self-expression and individuality.`,
+        `Greetings, fellow dreamers! I’m Willow, and with ${brand} I want to help you sprinkle a bit of whimsy into your weaving adventures. Inspired by fairy tales and fantasy, my patterns transport you to enchanted worlds filled with magic and wonder. From whimsical wall hangings to fantastical tapestries, each design is a portal to a realm of imagination. Join me as we weave tales of enchantment together, one colorful thread at a time.`,
+        `Hello, stylish stitchers! I’m Christopher, the designer behind ${brand} and your guide to chic and sophisticated crafting. With a passion for timeless elegance and classic design, my patterns are crafted to elevate your handmade wardrobe to new heights of sophistication. From tailored blazers to flowy dresses and modern accessories, my creations blend effortless style with impeccable craftsmanship. Join me on a journey of sartorial excellence, where each stitch is a step towards creating a wardrobe that's as chic as it is timeless.`,
+        `Hey, cozy creators! I’m Clara, the crochet enthusiast behind all things warm and snuggly. My patterns for ${brand} are designed to wrap you in comfort and coziness, whether you're cuddling up with a handmade blanket or rocking a cozy cardigan. With a focus on soft textures and soothing colors, my designs are like a warm hug for your soul. Join me as we crochet our way to a world of comfort and joy, one stitch at a time.`,
+        `Hey, fellow quilt lovers! I’m Quentin, the quirky quilter with a passion for playful patterns. The designs I make for ${brand} are all about injecting a dose of fun and personality into your quilting projects, whether it's through bold colors, funky shapes, or whimsical motifs. From baby blankets to bedspreads, each quilt tells a story of creativity and imagination. Join me as we quilt our way to a world of color and whimsy, where every stitch is a step towards pure quilting joy.`
+    ]
+
+    const random = Math.floor(Math.random() * descriptions.length);
+
+    return descriptions[random]
+}
