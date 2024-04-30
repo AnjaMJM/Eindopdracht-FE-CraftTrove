@@ -5,10 +5,13 @@ import {CartContext} from "../../context/CartContext/CartContext.jsx";
 import trashcan from "../../assets/trashcan.png"
 import Button from "../Button/Button.jsx";
 import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
+import {ModalContext} from "../../context/ModalContext/ModalContext.jsx";
 
 function CartModal({isOpen, onClose, handlePurchase}) {
     const {cartItems, onRemove, totalPrice} = useContext(CartContext);
-    const navigate = useNavigate();
+    const {handleOpenAuthFormModalRegister} = useContext(ModalContext)
+    const {auth} = useContext(AuthContext)
 
     console.log("CartItems in cartModal", cartItems);
 
@@ -34,7 +37,7 @@ function CartModal({isOpen, onClose, handlePurchase}) {
             {cartItems.length !== 0 && (
                 <div className="cart-modal__purchase-container">
                     <div className="cart-modal__total-price">Total: €{totalPrice(cartItems)},-</div>
-                    <Button btnText="Purchase patterns" handleClick={handlePurchase}
+                    <Button btnText="Purchase patterns" handleClick={auth.isAuth ? handlePurchase : handleOpenAuthFormModalRegister }
                     />
                 </div>
             )}

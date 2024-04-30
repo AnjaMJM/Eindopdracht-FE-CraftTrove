@@ -4,6 +4,29 @@
     justify-content: flex-start;
 }
 
-.img-test {
-    width: 250px;
+.home__inspiration-title{
+    margin: 40px;
+    text-align: center;
+}
+
+.home__inspiration-row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+.home__inspiration-img-container {
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 100px;
+    min-height: 100px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.home__inspiration-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }

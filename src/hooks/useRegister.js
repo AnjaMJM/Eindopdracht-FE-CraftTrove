@@ -45,7 +45,6 @@ export function useRegister() {
 
         } catch (err) {
             console.error("Registration failed", err);
-            // Handle login failure, e.g., show error message to the user
         }
     };
 

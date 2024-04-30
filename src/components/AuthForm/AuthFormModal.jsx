@@ -15,10 +15,10 @@ function AuthFormModal({
                        }) {
 
     return (
-        <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose} btnPosition="low">
+        <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose} btnPosition="low" colorscheme="blue">
             <div className="modal__tab-wrap">
                 <div className="modal__tab">
-                    <input type="radio" id="tab-register" name="modal-tabs" onChange={tabChange} checked={register}/>
+                    <input type="radio" id="tab-registerForm" name="modal-tabs" onChange={tabChange} checked={register}/>
                     <label htmlFor="tab-register">Register</label>
                 </div>
                 <div className="modal__tab">

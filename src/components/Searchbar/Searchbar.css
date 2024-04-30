@@ -24,7 +24,7 @@
     overflow-y: scroll;
 
     background-color: var(--main-bg-color-beige);
-    max-height: 20rem;
+    max-height: 90vh;
     width: 100%;
     height: fit-content;
     position: absolute;

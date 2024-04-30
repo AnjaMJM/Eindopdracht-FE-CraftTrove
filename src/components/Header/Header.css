@@ -14,24 +14,28 @@
 
 .header__nav-list {
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 
-.header__login {
+.header__logged-in {
     display: flex;
     gap: 20px;
-    position: relative;
+    align-items: center;
+    /*position: relative;*/
 }
 
-.header__logout {
+.header__logged-out {
     display: flex;
     gap: 20px;
-    position: relative;
+    align-items: center;
+    /*position: relative;*/
 }
 
 .header__icon {
     width:40px;
 }
+
 .header__drop-down {
     display: inline-block;
     position: relative;

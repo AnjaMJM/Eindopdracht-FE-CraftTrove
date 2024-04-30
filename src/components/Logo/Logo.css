@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+.logo__title {
+    font-family: 'Satisfy', cursive;
+    font-size: 3rem;
+    text-decoration: none;
+    color: var(--accent-color-red);
+    transform: rotate(350deg);
+}
