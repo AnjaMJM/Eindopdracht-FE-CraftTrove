@@ -1,7 +1,7 @@
 import ProductCard from "../../components/ProductCard/ProductCard.jsx"
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import "./Overview.css";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 
@@ -45,6 +45,9 @@ function Overview() {
             case "weaving" :
                 types = "womens-shoes";
                 break;
+            default :
+                navigate("*");
+            break;
         }
 
         try {

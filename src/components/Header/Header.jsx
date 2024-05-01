@@ -17,12 +17,12 @@ import Logo from "../Logo/Logo.jsx";
 import {ModalContext} from "../../context/ModalContext/ModalContext.jsx";
 
 
-
 function Header() {
     const {setResult, fetchData} = useContext(SearchContext)
     const {auth, logout} = useContext(AuthContext)
     const {setCartItems} = useContext(CartContext)
-    const {isAuthFormModalOpen,
+    const {
+        isAuthFormModalOpen,
         registerForm,
         handleTabChange,
         handleCloseAuthFormModal,
@@ -30,7 +30,8 @@ function Header() {
         handleOpenAuthFormModalLogin,
         isCartModalOpen,
         handleOpenCartModal,
-    handleCloseCartModal} = useContext(ModalContext)
+        handleCloseCartModal
+    } = useContext(ModalContext)
     const {handleLoginChange, handleLogin, loginData} = useLogin()
     const {handleRegisterChange, handleRegister, registerData} = useRegister()
     const navigate = useNavigate()
@@ -59,7 +60,7 @@ function Header() {
     return (
         <>
             <div className="header">
-                <Link to="/" className="header__title"><Logo /></Link>
+                <Link to="/" className="header__title"><Logo/></Link>
 
                 <Searchbar
                     fetchData={fetchData}
@@ -69,28 +70,28 @@ function Header() {
 
                 <div className="header__nav-list">
                     {auth.isAuth === true ? (
-                            <div className="header__logged-in">
-                                <p>Welcome {auth.user.username}</p>
-                                <div className="header__drop-down">
+                        <div className="header__logged-in">
+                            <p>Welcome {auth.user.username}</p>
+                            <div className="header__drop-down">
                                 <img src={settings} alt="personal settings" className="header__icon"/>
                                 <div className="header__drop-down-menu">
-                                    <Link to="/newshop">Edit profile</Link>
-                                    <div onClick={logout}>Logout</div>
-                                </div></div>
-                                <Link to="/personalTrove"> <img src={treasureChest} alt="treasure chest"
-                                                                className="header__icon"/></Link>
+                                    <Link to="/newshop" className="header__drop-down-menu--item">Profile</Link>
+                                    <div onClick={logout}                           className="header__drop-down-menu--item">Logout</div>
+                                </div>
+                            </div>
+                                <Link to="/personalTrove"> <img src={treasureChest} alt=" treasure chest" className=" header__icon"/></Link>
                             </div>)
                         : ( //When a user is not logged in, they will be shown the option to login or registerForm
-                            <div className="header__logged-out">
-                                <Button type="button"
-                                        btnText="Register"
+                            <div className=" header__logged-out">
+                                <Button type=" button"
+                                        btnText=" Register"
                                         handleClick={handleOpenAuthFormModalRegister}/>
-                                <Button type="button"
-                                        btnText="Login"
+                                <Button type=" button"
+                                        btnText=" Login"
                                         handleClick={handleOpenAuthFormModalLogin}/>
                             </div>
                         )}
-                    <CartWidget className="header__icon header__cart-widget"
+                    <CartWidget className=" header__icon header__cart-widget"
                         handleClick={handleOpenCartModal}/>
                 </div>
             </div>

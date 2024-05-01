@@ -63,10 +63,10 @@ function AuthFormModal({
 
                 {register && (
                     <div className="auth-form__radio">
-                        <input type="radio" id="user-creative" name="user-type" value="creative"
+                        <input type="radio" id="user-creative" onChange={handleChange} name="user-type" value="USER"
                         />
                         <label htmlFor="user-creative">Creative</label>
-                        <input type="radio" id="user-designer" name="user-type" value="designer"
+                        <input type="radio" id="user-designer" onChange={handleChange} name="user-type" value="ADMIN"
                         />
                         <label htmlFor="user-designer">Designer</label>
                     </div>

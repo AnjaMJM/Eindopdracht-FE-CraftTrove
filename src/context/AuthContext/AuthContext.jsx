@@ -44,7 +44,7 @@ function AuthContextProvider({children}) {
             localStorage.setItem("username", response.data.username);
             console.log("De gebruiker is ingelogd 🔓", );
         } catch (err) {
-            console.error(err)
+            console.error(err.data)
         }
     }
 
@@ -55,8 +55,9 @@ function AuthContextProvider({children}) {
             user: null,
             status: "done",
         });
-        localStorage.removeItem("token");
+        localStorage.removeItem("jwtToken");
         localStorage.removeItem("username");
+        localStorage.removeItem("cartItems");
         console.log("De gebruiker is uitgelogd 🔒");
     };
 

@@ -1,0 +1,13 @@
+.not-found__text {
+    text-align: center;
+    margin: 40px;
+}
+
+.not-found__navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
