@@ -17,10 +17,14 @@ const {login} = useContext(AuthContext)
         });
     };
 
-    const handleLogin = async (e) => {
+    const handleLogin = async (e, username, password) => {
         e.preventDefault();
+        console.log(e)
         try {
-            const { username, password } = loginData;
+            if (loginData.username !== ""){
+                username = loginData.username;
+                password = loginData.password;
+            }
             const response = await axios.post(
                 "https://api.datavortex.nl/crafttrove/users/authenticate",
                 {
@@ -38,7 +42,8 @@ const {login} = useContext(AuthContext)
                 console.log("login succesvol", response.data)
             }
         } catch (err) {
-            console.error("Login failed", err);
+            console.error("Login failed", err.data);
+
         }
     };
 

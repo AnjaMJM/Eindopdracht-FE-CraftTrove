@@ -7,6 +7,14 @@ axios, react router DOM,
 
 fake store https://dummyjson.com/
 
+### To do:
+designers page: hardcoded --> bezoeken via product: knop onder about designer "visit shop"
+Wishlist maken
+hardcoded elementen bij aanpassen shop
+inloggen user of designer
+automatisch inloggen na registreren
+waarom verloopt token niet?
+
 
 Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
 
@@ -14,15 +22,15 @@ Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elk
 
 [ ] Minimaal 4 kern functionaliteiten; (ophalen en manipuleren van data in de API)
 
-    [] Inloggen/registreren
+    [X] Inloggen/registreren
     [X] Zoekfunctie
     [] Toevoegen producten
-    [] Winkelmand vullen
+    [X] Winkelmand vullen
     [] Wishlist maken
     [] random product slider
     [X] producten filteren op categorie
 
-[ ] Minimaal 6 herbruikbare componenten
+[X ] Minimaal 6 herbruikbare componenten
     
     [x] Button
     [x] inlog/registratie Form
@@ -37,19 +45,19 @@ Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elk
 
 GIT:
 
-[ ] Minimaal 5 branches en merches met main branch
+[ X] Minimaal 5 branches en merches met main branch
 
-    [] Gallery Slider
+    [X] Gallery Slider
     [X] searchbar (get data)
     [X] Pages (aanmaken en basic lay-out)
     [] Registratie, authethicatie
     [X] Formulieren
     [] Error handling
     [X] Navbar functioneel maken
-    [] Winkelmandje
+    [X] Winkelmandje
     
 
-[ ] Minimaal 20 commits met zinvolle messages
+[X ] Minimaal 20 commits met zinvolle messages
 
 
 icons via flaticon.com, attributed to:

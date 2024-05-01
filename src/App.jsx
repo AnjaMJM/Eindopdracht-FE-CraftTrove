@@ -27,7 +27,7 @@ function App() {
                         <Route path="/newshop" element={<NewShop/>}/>
                         <Route path="/personalTrove" element={<PersonalTrove/>}/>
                         <Route path="/cart" element={<Cart/>}/>
-                        <Route patch="*" element={<NotFound/>}/>
+                        <Route path="*" element={<NotFound/>}/>
                     </Routes>
                 </main>
             <Footer/>

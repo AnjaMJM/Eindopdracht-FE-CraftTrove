@@ -44,15 +44,31 @@
 .header__drop-down-menu {
     display: none;
     position: absolute;
-    overflow: auto;
-}
-
-.header__drop-down-menu {
-    text-decoration: none;
+    overflow: visible;
+    background-color: var(--main-bg-color-beige);
+    max-height: 90vh;
+    width: fit-content;
+    height: fit-content;
+    z-index: 10;
 }
 
 .header__drop-down:hover .header__drop-down-menu {
     display: block;
+}
+
+.header__drop-down-menu--item {
+    cursor: pointer;
+    padding: 1px 10px;
+    height: 2rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color-black)
+}
+
+.header__drop-down-menu--item:hover {
+    background-color: #f3f3f3;
 }
 
 

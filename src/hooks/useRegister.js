@@ -1,37 +1,55 @@
 import {useContext, useState} from "react";
 import axios from "axios";
 import {AuthContext} from "../context/AuthContext/AuthContext.jsx";
+import {useLogin} from "./useLogin.js";
 
 export function useRegister() {
     const [registerData, setRegisterData] = useState({
         username: "",
         email: "",
         password: "",
-        // authorities: ""
+        authorities:[
+            {
+            authority:""
+        }]
     });
-    const {login} =useContext(AuthContext)
+    const {handleLogin} =useLogin()
 
     const handleRegisterChange = (e) => {
-        const newValue = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+        const newValue = e.target.type === "radio" ? e.target.value : e.target.value;
 
-        const changedFieldName = e.target.name;
-        setRegisterData({
-            ...registerData,
-            [changedFieldName]: e.target.value,
-        });
+        console.log(e)
+        let changedFieldName = e.target.name;
+        if(changedFieldName === "user-type"){
+            // changedFieldName = "authority"
+            setRegisterData(
+                {
+                    ...registerData,
+                    authorities:[{
+                        authority:newValue
+                    }]
+                }
+            )
+        }else {
+            setRegisterData({
+                ...registerData,
+                [changedFieldName]: e.target.value,
+            });
+        }
+        console.log(registerData)
     };
 
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const {email, password, username} = registerData;
+            const {email, password, username, authorities} = registerData;
             const response = await axios.post(
                 "https://api.datavortex.nl/crafttrove/users",
                 {
                     username,
                     email,
                     password,
-                    // authorities,
+                    authorities,
                 }, {
                     headers: {
                         "Content-Type": "application/json",
@@ -41,8 +59,8 @@ export function useRegister() {
             );
             console.log("Gebruiker is geregistreerd", response)
             if (response.status === 200) {
-                login(response.data.jwt, username)}
-
+                void handleLogin(e, username, password)
+            }
         } catch (err) {
             console.error("Registration failed", err);
         }
