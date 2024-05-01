@@ -40,10 +40,11 @@ const {login} = useContext(AuthContext)
             if (response.status === 200) {
                 login(response.data.jwt, username);
                 console.log("login succesvol", response.data)
+
             }
         } catch (err) {
             console.error("Login failed", err.data);
-
+            return "test"
         }
     };
 

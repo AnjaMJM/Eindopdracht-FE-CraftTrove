@@ -21,7 +21,6 @@ export function useRegister() {
         console.log(e)
         let changedFieldName = e.target.name;
         if(changedFieldName === "user-type"){
-            // changedFieldName = "authority"
             setRegisterData(
                 {
                     ...registerData,

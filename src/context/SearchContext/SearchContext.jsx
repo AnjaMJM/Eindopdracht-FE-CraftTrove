@@ -11,12 +11,13 @@ function SearchContextProvider({children}) {
     const [result, setResult] = useState(null);
     const [value, setValue] = useState(''); // Value of the search bar
     const [suggestions, setSuggestions] = useState([]);
-
+    const [error, toggleError] = useState(false);
     const navigate = useNavigate()
 
     console.log("suggestions", suggestions);
 
     const fetchData = async (value) => {
+        toggleError(false)
         try {
             const response = await axios.get(
                 `https://dummyjson.com/products/search?q=${value}&limit=0&select=title,price,brand,thumbnail`
@@ -28,6 +29,7 @@ function SearchContextProvider({children}) {
 
         } catch (err) {
             console.error(err);
+            toggleError(true)
         }
     };
     console.log("result", result)
@@ -53,6 +55,7 @@ function SearchContextProvider({children}) {
         suggestions, // Include suggestions in the context value
         setResult,
         fetchData,
+        error
     };
 
     return (

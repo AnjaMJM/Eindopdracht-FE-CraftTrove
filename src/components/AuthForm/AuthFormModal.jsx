@@ -11,14 +11,18 @@ function AuthFormModal({
                            register,
                            isOpen,
                            onClose,
-                           tabChange
+                           tabChange,
+    loading,
+    error
                        }) {
+
+
 
     return (
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose} btnPosition="low" colorscheme="blue">
             <div className="modal__tab-wrap">
                 <div className="modal__tab">
-                    <input type="radio" id="tab-registerForm" name="modal-tabs" onChange={tabChange} checked={register}/>
+                    <input type="radio" id="tab-register" name="modal-tabs" onChange={tabChange} checked={register}/>
                     <label htmlFor="tab-register">Register</label>
                 </div>
                 <div className="modal__tab">
@@ -34,6 +38,7 @@ function AuthFormModal({
                                value={usernameValue}
                                onChange={handleChange}
                                placeholder="Username"
+                               minLength="5"
                                required/>
                         <div className="auth-form__underline"></div>
                     </div>
@@ -56,7 +61,7 @@ function AuthFormModal({
                            value={passwordValue}
                            onChange={handleChange}
                            placeholder="Password"
-                            minLength="8"
+                           minLength="8"
                            required/>
                     <div className="auth-form__underline"></div>
                 </div>
@@ -75,6 +80,8 @@ function AuthFormModal({
                         btnText="Submit"
                         colorscheme="blue"
                 />
+                {loading && (<p>Loading...</p>)}
+                {error && (<p>{error}</p>)}
             </form>
         </Modal>
     )

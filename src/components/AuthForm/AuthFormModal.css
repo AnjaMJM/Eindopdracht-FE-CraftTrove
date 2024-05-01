@@ -83,7 +83,7 @@
 }
 
 /*doesn't work yet...*/
-.auth-form__input input:invalid ~ .auth-form__underline:after{
+.auth-form__input input:required:valid ~ .auth-form__underline:after{
     transform: scale(1);
     background: var(--accent-color-red);
 }

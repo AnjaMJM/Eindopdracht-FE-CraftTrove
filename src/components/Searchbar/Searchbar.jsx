@@ -6,7 +6,9 @@ import {SearchContext} from "../../context/SearchContext/SearchContext";
 // eslint-disable-next-line react/prop-types
 function Searchbar({suggestionKey}) {
     const [hideSuggestions, setHideSuggestions] = useState(true);
+
     const {suggestions, fetchData, setResult, value, setValue} = useContext(SearchContext);
+
 
 
     const findResult = (value) => {
@@ -21,6 +23,7 @@ function Searchbar({suggestionKey}) {
                 await fetchData(value);
             } catch (error) {
                 console.log(error);
+
             }
         },
         1000,
