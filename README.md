@@ -8,33 +8,33 @@ axios, react router DOM,
 fake store https://dummyjson.com/
 
 ### To do:
-designers page: hardcoded --> bezoeken via product: knop onder about designer "visit shop"
+
+error-handling
+verantwoordingsdocument
+read me
+alles nalezen en controleren, criteria checken
 Wishlist maken
-hardcoded elementen bij aanpassen shop
-inloggen user of designer
-automatisch inloggen na registreren
-waarom verloopt token niet?
+laatste check op clean code
 
 
 Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
 
 ## Beoordelingscriteria website:
 
-[ ] Minimaal 4 kern functionaliteiten; (ophalen en manipuleren van data in de API)
+[x ] Minimaal 4 kern functionaliteiten; (ophalen en manipuleren van data in de API)
 
     [X] Inloggen/registreren
     [X] Zoekfunctie
-    [] Toevoegen producten
     [X] Winkelmand vullen
     [] Wishlist maken
-    [] random product slider
+    [x] random product slider
     [X] producten filteren op categorie
 
 [X ] Minimaal 6 herbruikbare componenten
     
     [x] Button
     [x] inlog/registratie Form
-    [] Gallery Slider
+    [x] Gallery Slider
     [x] Navbar
     [x] Header
     [] Footer
@@ -50,7 +50,7 @@ GIT:
     [X] Gallery Slider
     [X] searchbar (get data)
     [X] Pages (aanmaken en basic lay-out)
-    [] Registratie, authethicatie
+    [x] Registratie, authethicatie
     [X] Formulieren
     [] Error handling
     [X] Navbar functioneel maken

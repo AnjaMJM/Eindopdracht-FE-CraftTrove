@@ -14,15 +14,12 @@
 }
 
 .searchbar__textbox:focus {
-    /* We'll change the border color of the textbox as long as it is being focused */
     border: 3px solid var(--accent-color-red);
     transition: 0.2s ease-in-out;
 }
 
 .searchbar__suggestions {
-    /* Styles of the suggestions container */
     overflow-y: scroll;
-
     background-color: var(--main-bg-color-beige);
     max-height: 90vh;
     width: 100%;
@@ -32,12 +29,10 @@
 }
 
 .searchbar__suggestions.hidden {
-    /* Will hide the suggestions */
-    visibility: hidden; /*We can also use `opacity: 0`*/
+    visibility: hidden;
 }
 
 .searchbar__suggestion {
-    /* Styling of a single suggestion */
     cursor: pointer;
     padding: 1px 10px;
     height: 2rem;
@@ -46,6 +41,5 @@
 }
 
 .searchbar__suggestion:hover {
-    /* Changing background color on hover */
     background-color: #f3f3f3;
 }

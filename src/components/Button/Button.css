@@ -28,5 +28,4 @@
 .btn__yellow:hover {
     background-color: var(--main-bg-color-beige);
     border-color: var(--accent-color-red);
-
 }

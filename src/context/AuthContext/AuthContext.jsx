@@ -2,6 +2,7 @@ import {createContext, useEffect, useState} from "react";
 import axios from "axios";
 import {checkTokenValidity} from "../../helpers/checkTokenValidity.js";
 
+
 export const AuthContext = createContext(null);
 
 function AuthContextProvider({children}) {
@@ -44,7 +45,7 @@ function AuthContextProvider({children}) {
                 status: "done",
             });
             localStorage.setItem("username", response.data.username);
-            console.log("De gebruiker is ingelogd 🔓", );
+            console.log("De gebruiker is ingelogd 🔓",);
         } catch (err) {
             console.error(err.data)
             toggleAuthError(true)

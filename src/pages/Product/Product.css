@@ -1,6 +1,5 @@
 .product__wrapper {
     margin: 60px;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -42,7 +41,6 @@
     border: 2px solid var(--accent-color-red);
     border-radius: 20px;
     padding: 20px;
-
     display: flex;
     flex-direction: column;
     gap: 10px;

@@ -7,6 +7,7 @@ import {CartContext} from "../../context/CartContext/CartContext.jsx";
 
 function CartWidget({className, handleClick}) {
     const {cartItems} = useContext(CartContext)
+
     return (
         <button className="cart-widget__container" onClick={handleClick}>
             {cartItems.length > 0 && <span className="cart-widget__counter"> {cartItems.length}</span>}

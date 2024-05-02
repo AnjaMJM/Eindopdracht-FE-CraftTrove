@@ -19,11 +19,13 @@ function CartModal({isOpen, onClose, handlePurchase}) {
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose}>
             <h2 className="cart-modal__title">In your basket</h2>
             <div className="cart-modal__items">
-                {cartItems.length === 0 && <div>Your basket is empty</div>}
+                {cartItems.length === 0 &&
+                    <p>Your basket is empty</p>}
                 {cartItems.map((product) => (
                     <article className="cart-modal__item-container" key={product.id}>
                         <div className="cart-modal__img-container">
-                            <img className="cart-modal__img" src={product.thumbnail} alt={product.title}/>
+                            <img className="cart-modal__img"
+                                 src={product.thumbnail} alt={product.title}/>
                         </div>
                         <div className="cart-modal__text-container">
                             <h4 className="cart-modal__product-title">{product.title}</h4>
@@ -37,7 +39,8 @@ function CartModal({isOpen, onClose, handlePurchase}) {
             {cartItems.length !== 0 && (
                 <div className="cart-modal__purchase-container">
                     <div className="cart-modal__total-price">Total: €{totalPrice(cartItems)},-</div>
-                    <Button btnText="Purchase patterns" handleClick={auth.isAuth ? handlePurchase : handleOpenAuthFormModalRegister }
+                    <Button btnText="Purchase patterns"
+                            handleClick={auth.isAuth ? handlePurchase : handleOpenAuthFormModalRegister}
                     />
                 </div>
             )}

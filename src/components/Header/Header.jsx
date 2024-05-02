@@ -16,7 +16,6 @@ import CartModal from "../CartModal/CartModal.jsx";
 import Logo from "../Logo/Logo.jsx";
 import {ModalContext} from "../../context/ModalContext/ModalContext.jsx";
 
-
 function Header() {
     const {setResult, fetchData} = useContext(SearchContext)
     const {auth, logout} = useContext(AuthContext)
@@ -50,34 +49,30 @@ function Header() {
 
         const formHandler = registerForm ? handleRegister : handleLogin;
         try {
-            let a = await formHandler(e)
-            console.log(a)
-            if(a  === "test"){
-                setError("onjuiste gegevens")
-            }else {
+            let errorCheck = await formHandler(e)
+            if(errorCheck  === "Login failed"){
+                setError("Incorrect username or password")
+            } if (errorCheck === "Registration failed"){
+                setError("Username or email address already exists")
+            } else {
                 handleCloseAuthFormModal();
             }
         } catch (error) {
-
             console.error("Error occurred during form submission:", error);
-
         } finally {
             toggleAuthLoading(false);
         }
     }
 
-
     return (
         <>
-            <div className="header">
+            <header className="header">
                 <Link to="/" className="header__title"><Logo/></Link>
-
                 <Searchbar
                     fetchData={fetchData}
                     setResult={setResult}
                     suggestionKey="title"
                 />
-
                 <div className="header__nav-list">
                     {auth.isAuth === true ? (
                             <div className="header__logged-in">
@@ -91,8 +86,8 @@ function Header() {
                                 </div>
                                 <Link to="/personalTrove"> <img src={treasureChest} alt=" treasure chest"
                                                                 className=" header__icon"/></Link>
-                            </div>)
-                        : ( //When a user is not logged in, they will be shown the option to login or registerForm
+                            </div>
+                        ) : (
                             <div className=" header__logged-out">
                                 <Button type=" button"
                                         btnText=" Register"
@@ -105,7 +100,7 @@ function Header() {
                     <CartWidget className=" header__icon header__cart-widget"
                                 handleClick={handleOpenCartModal}/>
                 </div>
-            </div>
+            </header>
             <AuthFormModal
                 register={registerForm}
                 isOpen={isAuthFormModalOpen}

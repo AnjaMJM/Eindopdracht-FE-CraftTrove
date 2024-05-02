@@ -2,7 +2,6 @@
     height: 100px;
     background-color: var(--main-bg-color-beige);
     padding: 20px;
-
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -22,14 +21,12 @@
     display: flex;
     gap: 20px;
     align-items: center;
-    /*position: relative;*/
 }
 
 .header__logged-out {
     display: flex;
     gap: 20px;
     align-items: center;
-    /*position: relative;*/
 }
 
 .header__icon {

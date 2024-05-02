@@ -1,6 +1,5 @@
 .nav-bar__container {
     height: 120px;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;

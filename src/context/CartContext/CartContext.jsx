@@ -1,4 +1,5 @@
 import {createContext, useEffect, useState} from "react";
+
 export const CartContext = createContext(null);
 
 function CartContextProvider({children}) {
@@ -8,6 +9,8 @@ function CartContextProvider({children}) {
         const storedItems = JSON.parse(localStorage.getItem("cartItems"));
         if (storedItems) {
             setCartItems(storedItems)
+        } else {
+            setCartItems([])
         }
     }, []);
 
@@ -41,19 +44,19 @@ function CartContextProvider({children}) {
 
     console.log("total price", totalPrice(cartItems));
 
-const data = {
-    setCartItems,
-    cartItems,
-    onAdd,
-    onRemove,
-    totalPrice
-}
+    const data = {
+        setCartItems,
+        cartItems,
+        onAdd,
+        onRemove,
+        totalPrice
+    }
 
-return (
-    <CartContext.Provider value={data}>
-        {children}
-    </CartContext.Provider>
-);
+    return (
+        <CartContext.Provider value={data}>
+            {children}
+        </CartContext.Provider>
+    );
 }
 
 export default CartContextProvider;

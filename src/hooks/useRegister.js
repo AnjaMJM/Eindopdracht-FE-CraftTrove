@@ -62,6 +62,7 @@ export function useRegister() {
             }
         } catch (err) {
             console.error("Registration failed", err);
+            return "Registration failed"
         }
     };
 

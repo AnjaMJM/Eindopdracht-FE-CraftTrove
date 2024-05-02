@@ -10,7 +10,6 @@ import macrame from "../../assets/navbar/macrame.png"
 import mending from "../../assets/navbar/mending.png"
 import felt from "../../assets/navbar/wool.png"
 import weaving from "../../assets/navbar/weaving.png"
-
 import {Link} from "react-router-dom";
 
 function Navbar() {
