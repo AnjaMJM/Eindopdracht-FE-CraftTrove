@@ -33,13 +33,11 @@ function SearchContextProvider({children}) {
 
     useDebounce(
         async () => {
-            setLoading(true)
             try {
                 await fetchData(value);
             } catch (err) {
                 console.error("useDebounce error:", err);
             }
-            setLoading(false)
         },
         1000,
         [value]

@@ -42,7 +42,7 @@ function Searchbar({suggestionKey}) {
             <div className={`searchbar__suggestions ${hideSuggestions ? 'hidden' : ''} `}>
                 {loading &&
                     <p className="searchbar__suggestion">Searching for results</p>}
-                {loading === false && suggestions &&
+                {!loading && suggestions.length === 0 &&
                     <div className="searchbar__suggestion">No results found</div>}
                 {!loading && suggestions &&
                     suggestions.map((suggestion, index) => (

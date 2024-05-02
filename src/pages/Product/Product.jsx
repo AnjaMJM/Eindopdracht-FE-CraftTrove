@@ -36,7 +36,6 @@ function Product() {
             );
             setProduct(response.data)
             setImages(response.data.images)
-            console.log("fetchProduct", response);
         } catch (err) {
             console.error(err);
             setError(true)
