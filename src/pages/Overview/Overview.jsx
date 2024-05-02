@@ -71,9 +71,9 @@ function Overview() {
     return (
         <>
             <Navbar />
-            {loading === true && <LoadingMessage />}
-            {error === true || products.length === 0 && <ErrorMessage message="The category does not exist." />}
-            {error === false || products.length > 0 && <h2 className="overview__title">These are the results for {type}</h2>}
+            {loading && <LoadingMessage />}
+            {!loading && error || !loading && products.length === 0 && <ErrorMessage message="This category is not found." />}
+            {!error || products.length > 0 && <h2 className="overview__title">These are the results for {type}</h2>}
             <div className="overview__content">
                 {products && products.map(({id, thumbnail, title, brand, price}) => {
                     return <ProductCard

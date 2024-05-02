@@ -2,7 +2,6 @@ import {createContext, useEffect, useState} from "react";
 import axios from "axios";
 import {checkTokenValidity} from "../../helpers/checkTokenValidity.js";
 
-
 export const AuthContext = createContext(null);
 
 function AuthContextProvider({children}) {
@@ -12,7 +11,6 @@ function AuthContextProvider({children}) {
         status: "pending"
     });
     const [authError, toggleAuthError] = useState(false);
-    console.log("authError", authError)
 
     useEffect(() => {
         const storedToken = localStorage.getItem("jwtToken");
@@ -45,7 +43,7 @@ function AuthContextProvider({children}) {
                 status: "done",
             });
             localStorage.setItem("username", response.data.username);
-            console.log("De gebruiker is ingelogd 🔓",);
+            console.log("Login successful 🔓",);
         } catch (err) {
             console.error(err.data)
             toggleAuthError(true)
@@ -62,7 +60,7 @@ function AuthContextProvider({children}) {
         localStorage.removeItem("jwtToken");
         localStorage.removeItem("username");
         localStorage.removeItem("cartItems");
-        console.log("De gebruiker is uitgelogd 🔒");
+        console.log("Logout successful 🔒");
     };
 
     const data = {
@@ -71,8 +69,6 @@ function AuthContextProvider({children}) {
         logout,
         authError
     }
-
-    console.log("auth context", auth)
 
     return (
         <AuthContext.Provider value={data}>

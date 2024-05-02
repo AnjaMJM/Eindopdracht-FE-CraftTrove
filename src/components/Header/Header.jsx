@@ -35,7 +35,7 @@ function Header() {
     const {handleRegisterChange, handleRegister, registerData} = useRegister()
     const navigate = useNavigate()
     const [authLoading, toggleAuthLoading] = useState(false)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(false)
 
     function handlePurchase() {
         navigate("/cart");

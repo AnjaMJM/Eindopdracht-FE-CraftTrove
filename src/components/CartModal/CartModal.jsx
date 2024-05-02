@@ -13,8 +13,6 @@ function CartModal({isOpen, onClose, handlePurchase}) {
     const {handleOpenAuthFormModalRegister} = useContext(ModalContext)
     const {auth} = useContext(AuthContext)
 
-    console.log("CartItems in cartModal", cartItems);
-
     return (
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose}>
             <h2 className="cart-modal__title">In your basket</h2>

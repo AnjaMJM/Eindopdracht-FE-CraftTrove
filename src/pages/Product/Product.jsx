@@ -56,9 +56,9 @@ function Product() {
 
     return (
         <>
-            {loading === true && <LoadingMessage/>}
-            {error === true && <ErrorMessage message="There was an error fetching the product."/>}
-            {product &&
+            {loading && <LoadingMessage/>}
+            {!loading && error && <ErrorMessage message="There was an error fetching the product."/>}
+            {!loading && product &&
                 <div key={id} className="product__wrapper">
                     <div className="product__left-column">
                         <section className="product__photo-slider">

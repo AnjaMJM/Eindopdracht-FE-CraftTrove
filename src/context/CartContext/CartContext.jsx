@@ -20,14 +20,10 @@ function CartContextProvider({children}) {
             const updatedCartItems = [...cartItems, product];
             setCartItems(updatedCartItems);
             localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-            console.log("product in cartContext", product);
         }
     }
 
-    console.log("cartItems", cartItems)
-
     function onRemove(product) {
-        console.log("onRemove", product)
         const exist = cartItems.find((item) => item.id === product.id);
         if (exist) {
             const updatedCartItems = cartItems.filter((item) => item.id !== product.id)
@@ -41,8 +37,6 @@ function CartContextProvider({children}) {
             return total + currentItem.price;
         }, 0);
     }
-
-    console.log("total price", totalPrice(cartItems));
 
     const data = {
         setCartItems,

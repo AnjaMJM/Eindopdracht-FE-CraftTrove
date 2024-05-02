@@ -10,13 +10,11 @@ export const SearchContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 function SearchContextProvider({children}) {
     const [result, setResult] = useState(null);
-    const [value, setValue] = useState(''); // Value of the search bar
+    const [value, setValue] = useState(""); // Value of the search bar
     const [suggestions, setSuggestions] = useState([]);
     const [error, toggleError] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
-
-    console.log("suggestions", suggestions);
 
     const fetchData = async (value) => {
         toggleError(false)
@@ -32,18 +30,14 @@ function SearchContextProvider({children}) {
         }
         setLoading(false)
     };
-    console.log("result", result)
 
-    // useEffect(() => {
-    //     void fetchData();
-    // }, [value]);
     useDebounce(
         async () => {
             setLoading(true)
             try {
                 await fetchData(value);
             } catch (err) {
-                console.log("useDebounce error:", err);
+                console.error("useDebounce error:", err);
             }
             setLoading(false)
         },
@@ -56,8 +50,6 @@ function SearchContextProvider({children}) {
         if (result != null) {
             id = result.id.toString()
             navigate(`/product/${id}`)
-        } else {
-            console.log("id is not defined")
         }
     }, [result])
 

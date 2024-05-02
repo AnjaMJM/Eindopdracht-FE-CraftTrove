@@ -38,9 +38,12 @@ function Home() {
                 <Navbar/>
                 <h2 className="home__inspiration-title">Get started right now!</h2>
                 <div className="home__inspiration-row">
-                    {loading === true && <LoadingMessage/>}
-                    {error === true && <div>Unable to fetch inspiration</div>}
-                    {inspirations && randomProducts.map(({id, thumbnail}) => {
+                    {loading &&
+                        <LoadingMessage/>}
+                    {!loading && error &&
+                        <div>Unable to fetch inspiration</div>}
+                    {inspirations &&
+                        randomProducts.map(({id, thumbnail}) => {
                         return <Link to={`/product/${id}`} key={id} className="home__inspiration-img-container">
                             <img src={thumbnail} className="home__inspiration-img" alt="let's get started!"/>
                         </Link>
