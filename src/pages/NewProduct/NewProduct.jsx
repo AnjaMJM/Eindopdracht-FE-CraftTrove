@@ -9,7 +9,6 @@ function NewProduct() {
         aboutShop: "",
         logoShop: "",
         productPrice: "€ "
-        // products: [],
     })
 
     function handleChange(e) {
@@ -20,15 +19,10 @@ function NewProduct() {
         console.log(e)
     }
 
-    //
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log("product form", productFormState)
-    // }
-
     return (
         <>
             <h2 className="new-product__title"> Add a new product </h2>
+            <p className="new-product__title">*This form does not work yet*</p>
             <form className="new-product__form">
                 <div className="new-product__form-group">
                     <div className="new-product__product-name">
@@ -61,7 +55,6 @@ function NewProduct() {
                               className="new-product__textarea"
                     ></textarea>
                 </div>
-
                 <div className="new-product__difficulty">
                     <p className="new-product__label">Difficulty</p>
                     <div className="new-product__difficulty-radio">
@@ -75,7 +68,6 @@ function NewProduct() {
                         <label htmlFor="expert">Expert</label>
                     </div>
                 </div>
-
                 <div className="new-product__craft-type">
                     <p className="new-product__label">Type of craft:</p>
                     <div className="new-product__craft-type-checkbox">
@@ -111,7 +103,6 @@ function NewProduct() {
                             Quilt/patchwork</label>
                     </div>
                 </div>
-
                 <div className="new-product__form-image-upload">
                     <label htmlFor="logoShop">Add Photo
                         <input id="logoShop"
@@ -122,7 +113,6 @@ function NewProduct() {
                                value={productFormState.logoShop}
                                onChange={handleChange}
                         /></label></div>
-
                 <Button
                     type="submit"
                     btnText="Save changes"

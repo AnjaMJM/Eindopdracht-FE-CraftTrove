@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import "./Overview.css";
 import Navbar from "../../components/Navbar/Navbar.jsx";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.jsx";
+import LoadingMessage from "../../components/LoadingMessage/LoadingMessage.jsx";
 
 // After clicking a crafttype in the Navbar, all results will be shown here using ProductCard-components
 
@@ -11,8 +13,12 @@ function Overview() {
     const [products, setProducts] = useState([]);
     const {type} = useParams();
     const navigate = useNavigate();
+    const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const fetchCategories = async (type) => {
+        setLoading(true)
+        setError(false);
         let types;
         switch (type) {
             case "sewing" :
@@ -45,9 +51,6 @@ function Overview() {
             case "weaving" :
                 types = "womens-shoes";
                 break;
-            default :
-                navigate("*");
-            break;
         }
 
         try {
@@ -57,7 +60,9 @@ function Overview() {
             setProducts(response.data.products);
         } catch (err) {
             console.error(err);
+            setError(true);
         }
+        setLoading(false);
     };
     useEffect(() => {
         void fetchCategories(type);
@@ -66,7 +71,9 @@ function Overview() {
     return (
         <>
             <Navbar />
-            <h2 className="overview__title">These are the results for {type}</h2>
+            {loading && <LoadingMessage />}
+            {!loading && error || !loading && products.length === 0 && <ErrorMessage message="This category is not found." />}
+            {!error || products.length > 0 && <h2 className="overview__title">These are the results for {type}</h2>}
             <div className="overview__content">
                 {products && products.map(({id, thumbnail, title, brand, price}) => {
                     return <ProductCard

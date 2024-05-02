@@ -2,7 +2,7 @@
 
 function Shop() {
     return (
-        <div>View the products of a specific designer</div>
+        <div>This page does not work. Some day, you'll be able to visit a designers personal shop here</div>
     );
 }
 

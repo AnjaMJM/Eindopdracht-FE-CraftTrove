@@ -1,31 +1,17 @@
 import {useContext, useState} from 'react';
 import "./Searchbar.css";
-import {useDebounce} from "../../hooks/useDebounce";
 import {SearchContext} from "../../context/SearchContext/SearchContext";
 
 // eslint-disable-next-line react/prop-types
 function Searchbar({suggestionKey}) {
     const [hideSuggestions, setHideSuggestions] = useState(true);
-    const {suggestions, fetchData, setResult, value, setValue} = useContext(SearchContext);
-
+    const {suggestions, setResult, value, setValue, loading, error} = useContext(SearchContext);
 
     const findResult = (value) => {
         const selectedSuggestion = suggestions.find((suggestion) => suggestion[suggestionKey] === value);
         console.log("Selected Suggestion:", selectedSuggestion);
         setResult(selectedSuggestion);
     };
-
-    useDebounce(
-        async () => {
-            try {
-                await fetchData(value);
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        1000,
-        [value]
-    );
 
     const handleFocus = () => {
         setHideSuggestions(false);
@@ -52,9 +38,16 @@ function Searchbar({suggestionKey}) {
                 value={value}
                 onChange={handleSearchInputChange}
             />
+            {error && <div>Something went wrong.</div>}
             <div className={`searchbar__suggestions ${hideSuggestions ? 'hidden' : ''} `}>
-                {suggestions && suggestions.map((suggestion, index) => (
-                    <div key={index} className="searchbar__suggestion" onClick={() => findResult(suggestion[suggestionKey])}>
+                {loading &&
+                    <p className="searchbar__suggestion">Searching for results</p>}
+                {loading === false && suggestions &&
+                    <div className="searchbar__suggestion">No results found</div>}
+                {!loading && suggestions &&
+                    suggestions.map((suggestion, index) => (
+                    <div key={index} className="searchbar__suggestion"
+                         onClick={() => findResult(suggestion[suggestionKey])}>
                         {suggestion[suggestionKey]}
                     </div>
                 ))}

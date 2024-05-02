@@ -32,9 +32,6 @@
     width: 100%
 }
 
-.product-card__description {
-}
-
 .product-card__price {
     color: var(--accent-color-red);
     font-weight: bold;

@@ -43,7 +43,7 @@ const {login} = useContext(AuthContext)
             }
         } catch (err) {
             console.error("Login failed", err.data);
-
+            return "Login failed"
         }
     };
 

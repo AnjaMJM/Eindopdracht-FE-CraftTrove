@@ -8,8 +8,6 @@
     border: 3px solid var(--accent-color-darkblue);
     border-radius: 20px;
     box-shadow: hsl(0 0% 0% / 10%) 0 0 0.5rem 0.25rem;
-
-    /*to position the modal in the center of the screen*/
     position: relative;
     margin: auto;
     z-index: 1;

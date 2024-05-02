@@ -10,6 +10,7 @@ function AuthContextProvider({children}) {
         user: null,
         status: "pending"
     });
+    const [authError, toggleAuthError] = useState(false);
 
     useEffect(() => {
         const storedToken = localStorage.getItem("jwtToken");
@@ -23,7 +24,7 @@ function AuthContextProvider({children}) {
 
     async function login(jwtToken, username) {
         localStorage.setItem("jwtToken", jwtToken);
-
+        toggleAuthError(false)
         try {
             const response = await axios.get(`https://api.datavortex.nl/crafttrove/users/${username}`, {
                 headers: {
@@ -42,9 +43,10 @@ function AuthContextProvider({children}) {
                 status: "done",
             });
             localStorage.setItem("username", response.data.username);
-            console.log("De gebruiker is ingelogd 🔓", );
+            console.log("Login successful 🔓",);
         } catch (err) {
             console.error(err.data)
+            toggleAuthError(true)
         }
     }
 
@@ -58,16 +60,15 @@ function AuthContextProvider({children}) {
         localStorage.removeItem("jwtToken");
         localStorage.removeItem("username");
         localStorage.removeItem("cartItems");
-        console.log("De gebruiker is uitgelogd 🔒");
+        console.log("Logout successful 🔒");
     };
 
     const data = {
         auth,
         login,
         logout,
+        authError
     }
-
-    console.log("auth context", auth)
 
     return (
         <AuthContext.Provider value={data}>

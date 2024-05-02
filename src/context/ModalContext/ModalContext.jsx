@@ -56,4 +56,5 @@ function ModalContextProvider({children}) {
         </ModalContext.Provider>
     );
 }
-    export default ModalContextProvider;
+
+export default ModalContextProvider;

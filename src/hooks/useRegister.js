@@ -1,6 +1,5 @@
-import {useContext, useState} from "react";
+import {useState} from "react";
 import axios from "axios";
-import {AuthContext} from "../context/AuthContext/AuthContext.jsx";
 import {useLogin} from "./useLogin.js";
 
 export function useRegister() {
@@ -21,7 +20,6 @@ export function useRegister() {
         console.log(e)
         let changedFieldName = e.target.name;
         if(changedFieldName === "user-type"){
-            // changedFieldName = "authority"
             setRegisterData(
                 {
                     ...registerData,
@@ -36,7 +34,6 @@ export function useRegister() {
                 [changedFieldName]: e.target.value,
             });
         }
-        console.log(registerData)
     };
 
     const handleRegister = async (e) => {
@@ -57,12 +54,13 @@ export function useRegister() {
                     }
                 }
             );
-            console.log("Gebruiker is geregistreerd", response)
             if (response.status === 200) {
                 void handleLogin(e, username, password)
+                console.log("Registration successful")
             }
         } catch (err) {
             console.error("Registration failed", err);
+            return "Registration failed"
         }
     };
 

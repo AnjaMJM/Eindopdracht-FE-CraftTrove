@@ -11,14 +11,16 @@ function AuthFormModal({
                            register,
                            isOpen,
                            onClose,
-                           tabChange
-                       }) {
+                           tabChange,
+                           loading,
+                           error
+                       }){
 
     return (
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose} btnPosition="low" colorscheme="blue">
             <div className="modal__tab-wrap">
                 <div className="modal__tab">
-                    <input type="radio" id="tab-registerForm" name="modal-tabs" onChange={tabChange} checked={register}/>
+                    <input type="radio" id="tab-register" name="modal-tabs" onChange={tabChange} checked={register}/>
                     <label htmlFor="tab-register">Register</label>
                 </div>
                 <div className="modal__tab">
@@ -26,18 +28,17 @@ function AuthFormModal({
                     <label htmlFor="tab-login">Login</label>
                 </div>
             </div>
-
             <form onSubmit={handleSubmit} className="auth-form">
-                    <div className="auth-form__input">
-                        <input type="text"
-                               name="username" id="username"
-                               value={usernameValue}
-                               onChange={handleChange}
-                               placeholder="Username"
-                               required/>
-                        <div className="auth-form__underline"></div>
-                    </div>
-
+                <div className="auth-form__input">
+                    <input type="text"
+                           name="username" id="username"
+                           value={usernameValue}
+                           onChange={handleChange}
+                           placeholder="Username"
+                           minLength="5"
+                           required/>
+                    <div className="auth-form__underline"></div>
+                </div>
                 {register && (<div className="auth-form__input">
                     <input type="email"
                            name="email"
@@ -48,7 +49,6 @@ function AuthFormModal({
                            required/>
                     <div className="auth-form__underline"></div>
                 </div>)}
-
                 <div className="auth-form__input">
                     <input type="password"
                            name="password"
@@ -56,17 +56,25 @@ function AuthFormModal({
                            value={passwordValue}
                            onChange={handleChange}
                            placeholder="Password"
-                            minLength="8"
+                           minLength="8"
                            required/>
                     <div className="auth-form__underline"></div>
                 </div>
-
                 {register && (
                     <div className="auth-form__radio">
-                        <input type="radio" id="user-creative" onChange={handleChange} name="user-type" value="USER"
+                        <input type="radio"
+                               id="user-creative"
+                               onChange={handleChange}
+                               name="user-type"
+                               value="USER"
+                               required
+                               checked
                         />
                         <label htmlFor="user-creative">Creative</label>
-                        <input type="radio" id="user-designer" onChange={handleChange} name="user-type" value="ADMIN"
+                        <input type="radio" id="user-designer"
+                               onChange={handleChange}
+                               name="user-type"
+                               value="ADMIN"
                         />
                         <label htmlFor="user-designer">Designer</label>
                     </div>
@@ -75,6 +83,8 @@ function AuthFormModal({
                         btnText="Submit"
                         colorscheme="blue"
                 />
+                {loading && (<p>Loading...</p>)}
+                {error && (<p>{error}</p>)}
             </form>
         </Modal>
     )

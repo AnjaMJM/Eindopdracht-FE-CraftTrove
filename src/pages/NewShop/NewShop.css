@@ -41,7 +41,6 @@
 }
 
 .new-shop__form-group-names input:focus {
-    /* We'll change the border color of the textbox as long as it is being focused */
     border: 3px solid var(--accent-color-darkblue);
     transition: 0.2s ease-in-out;
 }

@@ -10,7 +10,6 @@ function NewShop() {
         shopName: "",
         aboutShop: "",
         logoShop: "",
-        // products: [],
     })
 
     function handleChange(e) {
@@ -21,15 +20,10 @@ function NewShop() {
         console.log()
     }
 
-    //
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log("shop form", shopFormState)
-    // }
-
     return (
         <>
             <h2 className="new-shop__title"> Let's set up shop! </h2>
+            <p className="new-shop__title">*This form does not work yet*</p>
             <form className="new-shop__form">
                 <div className="new-shop__form-group">
                     <div className="new-shop__form-group-names">
@@ -80,10 +74,10 @@ function NewShop() {
                     </Link>
                 </div>
 
-                    <Button
-                        type="submit"
-                        btnText="Save changes"
-                        colorscheme="blue" />
+                <Button
+                    type="submit"
+                    btnText="Save changes"
+                    colorscheme="blue"/>
             </form>
         </>
     );

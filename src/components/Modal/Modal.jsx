@@ -1,10 +1,8 @@
-import {useRef, useEffect, useState} from 'react';
+import {useRef, useEffect} from 'react';
 import './Modal.css';
 import Button from "../Button/Button.jsx";
-import AuthFormModal from "../AuthForm/AuthFormModal.jsx";
 
 const Modal = ({isOpen, onClose, btnPosition, colorscheme, children}) => {
-    // const [isModalOpen, setModalOpen] = useState(false);
     const modalRef = useRef(null);
 
     const handleCloseModal = () => {
@@ -13,7 +11,6 @@ const Modal = ({isOpen, onClose, btnPosition, colorscheme, children}) => {
         }
     };
 
-    // to trigger event on key (in this case 'esc'-key)
     const handleKeyDown = (event) => {
         if (event.key === 'Escape') {
             handleCloseModal();
@@ -33,15 +30,17 @@ const Modal = ({isOpen, onClose, btnPosition, colorscheme, children}) => {
     }, [isOpen]);
 
     return (
-        <dialog ref={modalRef} onKeyDown={handleKeyDown} className={colorscheme === "blue" ? "modal modal__border-blue" : "modal modal__border-yellow"}>
-
-                <div className={btnPosition === "low" ? "modal__close-btn modal__btn-position-low" : "modal__close-btn"}>
-                    <Button type="button"
-                            handleClick={handleCloseModal}
-                            btnText="Close"
-                            colorscheme={colorscheme}
-                    />
-                </div>
+        <dialog ref={modalRef}
+                onKeyDown={handleKeyDown}
+                className={colorscheme === "blue" ? "modal modal__border-blue" : "modal modal__border-yellow"}
+        >
+            <div className={btnPosition === "low" ? "modal__close-btn modal__btn-position-low" : "modal__close-btn"}>
+                <Button type="button"
+                        handleClick={handleCloseModal}
+                        btnText="Close"
+                        colorscheme={colorscheme}
+                />
+            </div>
             {children}
         </dialog>
     );
