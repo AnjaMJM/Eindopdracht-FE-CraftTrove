@@ -1,7 +1,7 @@
 import shoppingBasket from "../../assets/wicker-basket.png";
 import "./CartWidget.css"
 import {useContext} from "react";
-import {CartContext} from "../../context/CartContext/CartContext.jsx";
+import {CartContext} from "../../context/CartContext.jsx";
 
 
 

@@ -1,6 +1,6 @@
 import {useContext, useState} from 'react';
 import "./Searchbar.css";
-import {SearchContext} from "../../context/SearchContext/SearchContext";
+import {SearchContext} from "../../context/SearchContext.jsx";
 
 // eslint-disable-next-line react/prop-types
 function Searchbar({suggestionKey}) {

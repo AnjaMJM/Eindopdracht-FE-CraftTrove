@@ -1,20 +1,22 @@
+import {useContext, useState} from "react";
 import "./Header.css"
 import treasureChest from "../../assets/treasure.png"
 import settings from "../../assets/settings.png"
 import Searchbar from "../Searchbar/Searchbar.jsx";
 import Button from "../Button/Button.jsx";
 import AuthFormModal from "../AuthForm/AuthFormModal.jsx";
-import {useContext, useState} from "react";
+
 import {Link, useNavigate} from "react-router-dom";
-import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
-import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
-import {CartContext} from "../../context/CartContext/CartContext.jsx";
+import {SearchContext} from "../../context/SearchContext.jsx";
+import {AuthContext} from "../../context/AuthContext.jsx";
+import {CartContext} from "../../context/CartContext.jsx";
 import {useLogin} from "../../hooks/useLogin.js";
 import {useRegister} from "../../hooks/useRegister.js";
 import CartWidget from "../CartWidget/CartWidget.jsx";
 import CartModal from "../CartModal/CartModal.jsx";
 import Logo from "../Logo/Logo.jsx";
-import {ModalContext} from "../../context/ModalContext/ModalContext.jsx";
+import {AuthModalContext} from "../../context/AuthModalContext.jsx";
+import {CartModalContext} from "../../context/CartModalContext.jsx";
 
 function Header() {
     const {setResult, fetchData} = useContext(SearchContext)
@@ -27,10 +29,10 @@ function Header() {
         handleCloseAuthFormModal,
         handleOpenAuthFormModalRegister,
         handleOpenAuthFormModalLogin,
-        isCartModalOpen,
+    } = useContext(AuthModalContext)
+    const {isCartModalOpen,
         handleOpenCartModal,
-        handleCloseCartModal
-    } = useContext(ModalContext)
+        handleCloseCartModal,} = useContext(CartModalContext)
     const {handleLoginChange, handleLogin, loginData} = useLogin()
     const {handleRegisterChange, handleRegister, registerData} = useRegister()
     const navigate = useNavigate()
@@ -97,7 +99,7 @@ function Header() {
                                         handleClick={handleOpenAuthFormModalLogin}/>
                             </div>
                         )}
-                    <CartWidget className=" header__icon header__cart-widget"
+                    <CartWidget className="header__icon"
                                 handleClick={handleOpenCartModal}/>
                 </div>
             </header>

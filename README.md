@@ -1,23 +1,71 @@
 # Eindopdracht Frontend: CraftTrove - webshop
 
-### Packages - geïnstalleerd: 
-axios, react router DOM, 
+## Inleiding
+Welkom op CraftTrove, een schatkist vol inspiratie. Laat je inspireren door designers binnen de textiele ambachten en ga zelf aan de slag met hun ontwerpen.
+
+Op dit moment wordt CraftTrove gevuld door de data van de DummyJSON-API, een API met test-data voor webshops. Helaas biedt deze API weinig handwerk en al helemaal geen patronen. We hopen dat je hier doorheen kunt kijken tot een beter API zich aandient.
+
+![screenshot](src/assets/screenshot.png)
+
+## Applicatie starten
+
+Als je het project gecloned hebt naar jouw locale machine, installeer je eerst de `node_modules` door het volgende
+commando in de terminal te runnen:
+
+```
+npm install
+```
+
+Wanneer dit klaar is, kun je de applicatie starten met behulp van:
+
+```
+npm run dev
+```
+
+of gebruik de WebStorm knop (npm start). Open de localhost (meestal [http://localhost:5173](http://localhost:5173/), maar een ander nummer kan ook, als 5173 op dat moment al in gebruik is) om de pagina in de browser
+te bekijken. 
+
+### Libraries
+De applicatie maakt gebruik van de volgende libraries:
+
+```
+axios
+```
+,
+```
+react-router-dom
+```
+en
+```
+jwt-decode
+```
+Deze zouden gelijk met het uitvoeren van de npm install geïnstalleerd moeten worden.
+Dit kun je controleren in de package.json onder 'dependencies'. Dit zou er als volgt uit moeten zien:
+
+```
+"dependencies": {
+    "axios": "^1.6.8",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+```
+Of een recentere versie
 
 ### API's: 
 
-fake store https://dummyjson.com/
+Voor deze webshop worden twee API's gebruikt, te weten:
+
+fake store API, voor de winkeldata: https://dummyjson.com/ (geen API-key nodig)
+NOVI Educational Backend, voor de registratie en login: https://novi.datavortex.nl (API-key;  crafttrove:A9GPZ9fuTVS4x1u6oimE)
 
 ### To do:
 
-error-handling
 verantwoordingsdocument
 read me
-alles nalezen en controleren, criteria checken
+
 Wishlist maken
-laatste check op clean code
 
-
-Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
 
 ## Beoordelingscriteria website:
 

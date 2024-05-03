@@ -3,24 +3,27 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {BrowserRouter as Router} from "react-router-dom";
-import SearchContextProvider from "./context/SearchContext/SearchContext.jsx";
-import AuthContextProvider from "./context/AuthContext/AuthContext.jsx";
-import CartContextProvider from "./context/CartContext/CartContext.jsx";
-import ModalContextProvider from "./context/ModalContext/ModalContext.jsx";
+import SearchContextProvider from "./context/SearchContext.jsx";
+import AuthContextProvider from "./context/AuthContext.jsx";
+import CartContextProvider from "./context/CartContext.jsx";
+import AuthModalContextProvider from "./context/AuthModalContext.jsx";
+import CartModalContextProvider from "./context/CartModalContext.jsx";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <Router>
-            <ModalContextProvider>
+            <AuthModalContextProvider>
                 <AuthContextProvider>
-                    <CartContextProvider>
-                        <SearchContextProvider>
-                            <App/>
-                        </SearchContextProvider>
-                    </CartContextProvider>
+                    <CartModalContextProvider>
+                        <CartContextProvider>
+                            <SearchContextProvider>
+                                <App/>
+                            </SearchContextProvider>
+                        </CartContextProvider>
+                    </CartModalContextProvider>
                 </AuthContextProvider>
-            </ModalContextProvider>
+            </AuthModalContextProvider>
         </Router>
     </React.StrictMode>,
 )

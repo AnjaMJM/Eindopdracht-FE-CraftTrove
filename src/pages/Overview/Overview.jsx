@@ -73,7 +73,7 @@ function Overview() {
             <Navbar />
             {loading && <LoadingMessage />}
             {!loading && error || !loading && products.length === 0 && <ErrorMessage message="This category is not found." />}
-            {!error || products.length > 0 && <h2 className="overview__title">These are the results for {type}</h2>}
+            {!error && products && <h2 className="overview__title">These are the results for {type}</h2>}
             <div className="overview__content">
                 {products && products.map(({id, thumbnail, title, brand, price}) => {
                     return <ProductCard
