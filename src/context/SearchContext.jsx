@@ -1,7 +1,7 @@
 import {createContext, useEffect, useLayoutEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
-import {useDebounce} from "../../hooks/useDebounce.js";
+import {useDebounce} from "../hooks/useDebounce.js";
 
 
 export const SearchContext = createContext(null);

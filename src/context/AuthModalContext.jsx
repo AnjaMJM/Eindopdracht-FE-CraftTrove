@@ -1,12 +1,11 @@
 import {createContext, useState} from "react";
 
-export const ModalContext = createContext(null);
+export const AuthModalContext = createContext(null);
 
 // eslint-disable-next-line react/prop-types
-function ModalContextProvider({children}) {
+function AuthModalContextProvider({children}) {
     const [isAuthFormModalOpen, setIsAuthFormModalOpen] = useState(false);
     const [registerForm, toggleRegisterForm] = useState(true);
-    const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
 // two different options to open the AuthFormModal, one to registerForm and one to login.
     const handleOpenAuthFormModalRegister = () => {
@@ -30,18 +29,7 @@ function ModalContextProvider({children}) {
         }
     };
 
-    const handleOpenCartModal = () => {
-        setIsCartModalOpen(true)
-    }
-
-    const handleCloseCartModal = () => {
-        setIsCartModalOpen(false)
-    }
-
     const modalData = {
-        isCartModalOpen,
-        handleOpenCartModal,
-        handleCloseCartModal,
         isAuthFormModalOpen,
         registerForm,
         handleTabChange,
@@ -51,10 +39,10 @@ function ModalContextProvider({children}) {
 
     }
     return (
-        <ModalContext.Provider value={modalData}>
+        <AuthModalContext.Provider value={modalData}>
             {children}
-        </ModalContext.Provider>
+        </AuthModalContext.Provider>
     );
 }
 
-export default ModalContextProvider;
+export default AuthModalContextProvider;

@@ -1,18 +1,19 @@
-// import {SearchContext} from "../../context/SearchContext/SearchContext.jsx";
 import {useContext, useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import axios from "axios";
+
 import "./Product.css"
+import {AuthContext} from "../../context/AuthContext.jsx";
+import {CartContext} from "../../context/CartContext.jsx";
+import {WishlistContext} from "../../context/WishlistContext.jsx";
 import {
     getRandomDifficulty,
     getRandomMaterial,
     getRandomTools,
     getRandomKeywords
 } from "../../helpers/randomProductDescriptionHelper.js";
-import axios from "axios";
-import {Link, useParams} from "react-router-dom";
-import Button from "../../components/Button/Button.jsx";
-import {AuthContext} from "../../context/AuthContext/AuthContext.jsx";
-import {CartContext} from "../../context/CartContext/CartContext.jsx";
 import {getRandomDesignerDescription} from "../../helpers/randomCreatorDescriptionHelper.js";
+import Button from "../../components/Button/Button.jsx";
 import GallerySlider from "../../components/GallerySlider/GallerySlider.jsx";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage.jsx";
 import LoadingMessage from "../../components/LoadingMessage/LoadingMessage.jsx";
@@ -21,6 +22,7 @@ function Product() {
     const {id} = useParams();
     const {auth} = useContext(AuthContext)
     const {onAdd} = useContext(CartContext)
+    const {addToWishlist} = useContext(WishlistContext)
     const [product, setProduct] = useState([]);
     const [images, setImages] = useState([]);
     const [error, setError] = useState(false);
@@ -37,7 +39,6 @@ function Product() {
             setProduct(response.data)
             setImages(response.data.images)
         } catch (err) {
-            console.error(err);
             setError(true)
         }
         setLoading(false)
@@ -45,10 +46,6 @@ function Product() {
 
     useEffect(() => {
         void fetchProduct();
-        getRandomTools();
-        getRandomKeywords();
-        getRandomDifficulty();
-        getRandomMaterial()
     }, [id]);
 
     const {title, brand, description, price} = product;
@@ -79,6 +76,7 @@ function Product() {
                                 {auth.isAuth && <Button
                                     type="button"
                                     btnText="Add to wishlist"
+                                    handleClick={() => addToWishlist(product)}
                                 />}
                                 <Button
                                     type="button"

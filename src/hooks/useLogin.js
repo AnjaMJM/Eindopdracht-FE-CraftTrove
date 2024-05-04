@@ -1,6 +1,6 @@
 import {useContext, useState} from "react";
 import axios from "axios";
-import {AuthContext} from "../context/AuthContext/AuthContext.jsx";
+import {AuthContext} from "../context/AuthContext.jsx";
 
 export function useLogin() {
     const [loginData, setLoginData] = useState({
@@ -19,7 +19,6 @@ const {login} = useContext(AuthContext)
 
     const handleLogin = async (e, username, password) => {
         e.preventDefault();
-        console.log(e)
         try {
             if (loginData.username !== ""){
                 username = loginData.username;
@@ -39,10 +38,8 @@ const {login} = useContext(AuthContext)
             );
             if (response.status === 200) {
                 login(response.data.jwt, username);
-                console.log("login succesvol", response.data)
             }
         } catch (err) {
-            console.error("Login failed", err.data);
             return "Login failed"
         }
     };

@@ -1,5 +1,6 @@
-import "./ErrorMessage.css"
 import {Link} from "react-router-dom";
+
+import "./ErrorMessage.css"
 import Button from "../Button/Button.jsx";
 
 function ErrorMessage({message}) {

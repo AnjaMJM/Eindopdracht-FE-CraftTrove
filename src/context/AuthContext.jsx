@@ -1,6 +1,6 @@
 import {createContext, useEffect, useState} from "react";
 import axios from "axios";
-import {checkTokenValidity} from "../../helpers/checkTokenValidity.js";
+import {checkTokenValidity} from "../helpers/checkTokenValidity.js";
 
 export const AuthContext = createContext(null);
 
@@ -43,12 +43,12 @@ function AuthContextProvider({children}) {
                 status: "done",
             });
             localStorage.setItem("username", response.data.username);
-            console.log("Login successful 🔓",);
         } catch (err) {
-            console.error(err.data)
             toggleAuthError(true)
         }
     }
+
+
 
     const logout = () => {
         setAuth({
@@ -60,7 +60,6 @@ function AuthContextProvider({children}) {
         localStorage.removeItem("jwtToken");
         localStorage.removeItem("username");
         localStorage.removeItem("cartItems");
-        console.log("Logout successful 🔒");
     };
 
     const data = {

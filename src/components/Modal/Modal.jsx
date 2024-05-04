@@ -1,4 +1,5 @@
 import {useRef, useEffect} from 'react';
+
 import './Modal.css';
 import Button from "../Button/Button.jsx";
 

@@ -1,84 +1,69 @@
 # Eindopdracht Frontend: CraftTrove - webshop
 
-### Packages - geïnstalleerd: 
-axios, react router DOM, 
+## Inleiding
+Welkom op CraftTrove, een schatkist vol inspiratie. Laat je inspireren door designers binnen de textiele ambachten en ga zelf aan de slag met hun ontwerpen.
+De applicatie bevat een zoekbalk, om producten individueel te kunnen bezoeken. Via de navigatie bar (op enkele pagina's onder de header) is het mogelijk een overzicht te krijgen per categorie. Er kan een winkelmandje gevuld worden en het is mogelijk een eigen account aan te maken.
 
-### API's: 
+Op dit moment wordt CraftTrove gevuld door de data van de DummyJSON-API, een API met test-data voor webshops. Helaas biedt deze API weinig handwerk en al helemaal geen patronen. We hopen dat je hier doorheen kunt kijken tot een beter API zich aandient.
 
-fake store https://dummyjson.com/
+De Github repository vind je hier: https://github.com/AnjaMJM/Eindopdracht-FE-CraftTrove
 
-### To do:
+![screenshot](src/assets/screenshot.png)
 
-error-handling
-verantwoordingsdocument
-read me
-alles nalezen en controleren, criteria checken
-Wishlist maken
-laatste check op clean code
+## Applicatie starten
 
+Het project is opgezet met Vite. Na het openen van het project, installeer je eerst de `node_modules` door het volgende
+commando in de terminal te runnen:
 
-Nieuwe set-up voor json: designers en producten verdelen over 2 baskets, aan elkaar te koppelen met een designer (gebruikersnaam)
+```
+npm install
+```
 
-## Beoordelingscriteria website:
+Wanneer dit klaar is, kun je de applicatie starten met behulp van:
 
-[x ] Minimaal 4 kern functionaliteiten; (ophalen en manipuleren van data in de API)
+```
+npm run dev
+```
 
-    [X] Inloggen/registreren
-    [X] Zoekfunctie
-    [X] Winkelmand vullen
-    [] Wishlist maken
-    [x] random product slider
-    [X] producten filteren op categorie
+Open de localhost (meestal [http://localhost:5173](http://localhost:5173/), maar een ander nummer kan ook, als 5173 op dat moment al in gebruik is) om de pagina in de browser te bekijken. 
 
-[X ] Minimaal 6 herbruikbare componenten
-    
-    [x] Button
-    [x] inlog/registratie Form
-    [x] Gallery Slider
-    [x] Navbar
-    [x] Header
-    [] Footer
-    [x] Productcard
-    [x] Modal (inloggen/ registreren)
-    [x] Searchbar
+## Libraries
+De applicatie maakt gebruik van de volgende libraries:
 
+`axios` , `react-router-dom` en `jwt-decode`
 
-GIT:
+Deze zouden gelijk met het uitvoeren van de npm install geïnstalleerd moeten worden.
+Dit kun je controleren in de package.json onder 'dependencies'. Dit zou er als volgt uit moeten zien:
 
-[ X] Minimaal 5 branches en merches met main branch
+```
+"dependencies": {
+    "axios": "^1.6.8",
+    "jwt-decode": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+```
+Of een recentere versie
 
-    [X] Gallery Slider
-    [X] searchbar (get data)
-    [X] Pages (aanmaken en basic lay-out)
-    [x] Registratie, authethicatie
-    [X] Formulieren
-    [] Error handling
-    [X] Navbar functioneel maken
-    [X] Winkelmandje
-    
+## API's: 
 
-[X ] Minimaal 20 commits met zinvolle messages
+Voor deze webshop worden twee API's gebruikt, te weten:
 
+Fake store API, voor de winkeldata: https://dummyjson.com/ (geen API-key nodig)
+NOVI Educational Backend, voor de registratie en login: https://novi.datavortex.nl (API-key;  crafttrove:A9GPZ9fuTVS4x1u6oimE)
 
+Om met een bestaand account in te loggen:
+
+ username: CraftTrove 
+
+ password: wachtwoord
+
+### credits
 icons via flaticon.com, attributed to:
-   - treasure chest by Smashicons
-   - settings by Freepik
-   - wicker-basket by Freepik
-   - craft-logo by Gravisio
-   - hand-made by Freepik
-   - crochet by Becris
-   - knitting by Freepik
-   - sewing-machine by Freepik
-   - lace-making by Freepik
-   - wool by Freepik
-   - embroidery by Eucalyp
-   - macrame by Freepik
-   - weaving by Freepik
-   - mending by Freepik
-   - patch by Freepik
-   - bed by Darius Dan
-   - add-post by HideMaru
-
-Searchbar is created with help of this tutorial: https://upmostly.com/tutorials/how-to-create-a-search-bar-in-react
-
-login: CraftTrove, info@crafttrove.nl, wachtwoord
+   - Smashicons
+   - Freepik
+   - Gravisio
+   - Becris
+   - Eucalyp
+   - Darius Dan
+   - HideMaru

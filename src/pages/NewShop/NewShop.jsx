@@ -1,7 +1,8 @@
-import "./NewShop.css"
 import {useState} from "react";
-import addProduct from "../../assets/add-post.png"
 import {Link} from "react-router-dom";
+
+import "./NewShop.css"
+import addProduct from "../../assets/add-post.png"
 import Button from "../../components/Button/Button.jsx";
 
 function NewShop() {
@@ -17,7 +18,6 @@ function NewShop() {
             ...shopFormState,
             [changedFieldName]: e.target.value,
         })
-        console.log()
     }
 
     return (
@@ -73,7 +73,6 @@ function NewShop() {
                                                 className="new-shop__add-product-image"/>
                     </Link>
                 </div>
-
                 <Button
                     type="submit"
                     btnText="Save changes"
