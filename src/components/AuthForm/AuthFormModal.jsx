@@ -14,7 +14,7 @@ function AuthFormModal({
                            tabChange,
                            loading,
                            error
-                       }){
+                       }) {
 
     return (
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose} btnPosition="low" colorscheme="blue">
@@ -62,21 +62,22 @@ function AuthFormModal({
                 </div>
                 {register && (
                     <div className="auth-form__radio">
-                        <input type="radio"
-                               id="user-creative"
-                               onChange={handleChange}
-                               name="user-type"
-                               value="USER"
-                               required
-                               checked
-                        />
-                        <label htmlFor="user-creative">Creative</label>
-                        <input type="radio" id="user-designer"
-                               onChange={handleChange}
-                               name="user-type"
-                               value="ADMIN"
-                        />
-                        <label htmlFor="user-designer">Designer</label>
+                        <label htmlFor="user-creative">
+                            <input type="radio"
+                                   id="user-creative"
+                                   onChange={handleChange}
+                                   name="user-type"
+                                   value="USER"
+                                   required
+                                   checked
+                            />Creative</label>
+
+                        <label htmlFor="user-designer">
+                            <input type="radio" id="user-designer"
+                                   onChange={handleChange}
+                                   name="user-type"
+                                   value="ADMIN"
+                            />Designer</label>
                     </div>
                 )}
                 <Button type="submit"

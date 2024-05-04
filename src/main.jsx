@@ -8,6 +8,7 @@ import AuthContextProvider from "./context/AuthContext.jsx";
 import CartContextProvider from "./context/CartContext.jsx";
 import AuthModalContextProvider from "./context/AuthModalContext.jsx";
 import CartModalContextProvider from "./context/CartModalContext.jsx";
+import WishlistContextProvider from "./context/WishlistContext.jsx";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -17,9 +18,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <AuthContextProvider>
                     <CartModalContextProvider>
                         <CartContextProvider>
-                            <SearchContextProvider>
-                                <App/>
-                            </SearchContextProvider>
+                            <WishlistContextProvider>
+                                <SearchContextProvider>
+                                    <App/>
+                                </SearchContextProvider>
+                            </WishlistContextProvider>
                         </CartContextProvider>
                     </CartModalContextProvider>
                 </AuthContextProvider>

@@ -16,7 +16,6 @@ function NewProduct() {
             ...productFormState,
             [e.target.name]: e.target.value,
         })
-        console.log(e)
     }
 
     return (
@@ -112,7 +111,9 @@ function NewProduct() {
                                className="new-product__form-image-upload-button"
                                value={productFormState.logoShop}
                                onChange={handleChange}
-                        /></label></div>
+                        />
+                    </label>
+                </div>
                 <Button
                     type="submit"
                     btnText="Save changes"

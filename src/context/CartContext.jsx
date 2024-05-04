@@ -4,6 +4,7 @@ export const CartContext = createContext(null);
 
 function CartContextProvider({children}) {
     const [cartItems, setCartItems] = useState([]);
+    const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
     useEffect(() => {
         const storedItems = JSON.parse(localStorage.getItem("cartItems"));
@@ -41,6 +42,8 @@ function CartContextProvider({children}) {
     const data = {
         setCartItems,
         cartItems,
+        isCartModalOpen,
+        setIsCartModalOpen,
         onAdd,
         onRemove,
         totalPrice

@@ -1,12 +1,12 @@
-import "./CartModal.css"
 import {useContext} from 'react';
-import Modal from "../Modal/Modal.jsx";
+
+import "./CartModal.css"
 import {CartContext} from "../../context/CartContext.jsx";
-import trashcan from "../../assets/trashcan.png"
-import Button from "../Button/Button.jsx";
-import {useNavigate} from "react-router-dom";
 import {AuthContext} from "../../context/AuthContext.jsx";
 import {AuthModalContext} from "../../context/AuthModalContext.jsx";
+import trashcan from "../../assets/trashcan.png"
+import Modal from "../Modal/Modal.jsx";
+import Button from "../Button/Button.jsx";
 
 function CartModal({isOpen, onClose, handlePurchase}) {
     const {cartItems, onRemove, totalPrice} = useContext(CartContext);

@@ -1,9 +1,10 @@
-import "./Home.css";
-import Navbar from "../../components/Navbar/Navbar.jsx";
-import axios from "axios";
 import {useEffect, useState} from "react";
-import {getRandomProducts} from "../../helpers/getRandomProductInspiration.js";
 import {Link} from "react-router-dom";
+import axios from "axios";
+
+import "./Home.css";
+import {getRandomProducts} from "../../helpers/getRandomProductInspiration.js";
+import Navbar from "../../components/Navbar/Navbar.jsx";
 import LoadingMessage from "../../components/LoadingMessage/LoadingMessage.jsx";
 
 function Home() {
@@ -20,7 +21,6 @@ function Home() {
             );
             setInspirations(response.data.products)
         } catch (err) {
-            console.error(err);
             setError(true)
         }
         setLoading(false)

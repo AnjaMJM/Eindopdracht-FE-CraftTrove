@@ -1,5 +1,6 @@
-import "./Navbar.css"
+import {Link} from "react-router-dom";
 
+import "./Navbar.css"
 import sewing from "../../assets/navbar/sewing-machine.png"
 import knitting from "../../assets/navbar/knitting.png"
 import crochet from "../../assets/navbar/crochet.png"
@@ -10,7 +11,6 @@ import macrame from "../../assets/navbar/macrame.png"
 import mending from "../../assets/navbar/mending.png"
 import felt from "../../assets/navbar/wool.png"
 import weaving from "../../assets/navbar/weaving.png"
-import {Link} from "react-router-dom";
 
 function Navbar() {
     return (
